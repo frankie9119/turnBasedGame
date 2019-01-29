@@ -1,13 +1,3 @@
-.containerP1{
-	border: solid 3px black;
-	height: 600px;
-	width: 300px;
-}
-.containerP2{
-	border: solid 3px black;
-	height: 600px;
-	width: 300px;
-}
 canvas{
 	display: block;
     margin: 0 auto;
@@ -15,6 +5,3 @@ canvas{
     background-color: ;
     background-image: url("img/ground.jpg");
  }
-#canvas{
-	background-image: url("img/ground.jpg");
-}
