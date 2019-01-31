@@ -42,7 +42,7 @@ $( ".dropbox" ).draggable({ snap: ".dropbox", grid: [40,40] });
 }
 $(".dropbox").droppable();
 
-$( "#draggable2" ).draggable({ snap: ".dropbox", grid: [40,40] });
+$( "#player-one" ).draggable({ snap: ".dropbox", grid: [40,40] });
 
 
 

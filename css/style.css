@@ -22,8 +22,9 @@
     .ui-widget-header p, .ui-widget-content p { margin: 0; }
 #snaptarget { height: 140px; }
 
-#draggable2
-{background-color:yellow;}
+#player-one{
+	background-color:yellow;
+}
 
 
 
