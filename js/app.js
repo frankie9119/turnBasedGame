@@ -19,7 +19,6 @@ $('.grid-box').on('click',function(){
     
  });
 
-*/
 
 for(var i = 1;i<=100;i++){
     $(".grid-box").append(
@@ -31,11 +30,19 @@ $(".dropbox").droppable();
 
 $( ".dropbox" ).draggable({ snap: ".dropbox", grid: [40,40] });
 
+*/
 
 
 
+  for(var i = 1;i<=100;i++){
+    $(".grid-box").append(
+            "<div id=\"draggable\"" + i
+            + " class=\"dropbox ui-widget-content\"></div>"
+        );
+}
+$(".dropbox").droppable();
 
-
+$( "#draggable2" ).draggable({ snap: ".dropbox", grid: [40,40] });
 
 
 
