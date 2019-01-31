@@ -1,7 +1,42 @@
-canvas{
-	display: block;
-    margin: 0 auto;
-    border: solid 3px black;
-    background-color: ;
-    background-image: url("img/ground.jpg");
- }
+.grid-box
+{	
+	width: 420px;
+	height: 420px;
+	background-color: red;
+}
+
+
+#game{
+  display:inline-block;
+  width: 400px;
+  height: 400px;
+}
+
+.draggable { 
+	background-color: blue; 
+	width: 40px; 
+	height: 40px; 
+	float: left; 
+	margin: 0 10px 10px 0; 
+	font-size: .9em;}
+    .ui-widget-header p, .ui-widget-content p { margin: 0; }
+#snaptarget { height: 140px; }
+
+#draggable2
+{background-color:yellow;}
+
+body, html{
+
+}
+
+
+
+.dropbox{
+	width: 400px;
+	height: 400px;
+    background-color:#c4c4c4;
+    width:40px;
+    height:40px;
+    float:left;
+    margin: 1px 1px 1px 1px;
+}

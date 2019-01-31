@@ -1,4 +1,47 @@
-/* DRAW THE GRID */
+
+
+/*
+for(var i = 1; i <=100; i += 1){
+	
+	$('#game').append(`<div id=${i} class='grid-box'>${i}</div>`)
+
+}
+
+$('.grid-box').on('click',function(){
+	  console.log( $(this).attr('id') )
+});
+
+ $(function () {
+     $('#game').draggable({
+         cursor: 'move',
+         containment: 'grid-box'
+     });
+    
+ });
+
+*/
+
+for(var i = 1;i<=100;i++){
+    $(".grid-box").append(
+            "<div id=\"draggable\"" + i
+            + " class=\"dropbox ui-widget-content\"></div>"
+        );
+}
+$(".dropbox").droppable();
+
+$( ".dropbox" ).draggable({ snap: ".dropbox", grid: [40,40] });
+
+
+
+
+
+
+
+
+
+
+
+/* DRAW THE GRID 
 
 // Box width
 var bw = 608;
@@ -31,5 +74,5 @@ context.stroke();
 }
 
 drawBoard();
-
+*/
 
