@@ -37,7 +37,7 @@ $( ".dropbox" ).draggable({ snap: ".dropbox", grid: [40,40] });
   for(var i = 1;i<=100;i++){
     $(".grid-box").append(
             "<div id=\"draggable\"" + i
-            + " class=\"dropbox ui-widget-content\"></div>"
+            + " class=\"dropbox \"></div>"
         );
 }
 $(".dropbox").droppable();
