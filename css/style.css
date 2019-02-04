@@ -37,3 +37,21 @@
     float:left;
     margin: 1px 1px 1px 1px;
 }
+#grid-box {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  font-size: 0;
+  position: relative;
+}
+
+#grid-box>div.square {
+  font-size: 1rem;
+  vertical-align: top;
+  display: inline-block;
+  width: 10%;
+  height: 10%;
+  box-sizing: border-box;
+  border: 1px solid #000;
+}
+
