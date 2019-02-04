@@ -1,8 +1,36 @@
+.container{
+	display: flex;
+	text-align: center;
+	width: 100%;
+	height: 400px;
+	background-color: pink;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+#player-1{
+	
+	width: 390px;
+	text-align: center;
+	
+	padding-left: 50px;
+	padding-right: 50px;
+}
 .grid-box
 {	
 	width: 420px;
 	height: 420px;
 	background-color: red;
+	padding-left: 0px;
+	
+}
+#player-2{
+	
+	width: 390px;
+	text-align: center;
+	
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 

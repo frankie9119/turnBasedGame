@@ -41,7 +41,41 @@ $( ".dropbox" ).draggable({ snap: ".dropbox", grid: [40,40] });
         );
 }
 $(".dropbox").droppable();*/
+/*
+var grid = document.getElementById("grid-box");
 
+for (var i = 1; i <= 100; i++) {
+  var square = document.createElement("div");
+  square.className = 'square';
+  square.id = 'square' + i;
+  grid.appendChild(square);
+}
+
+
+
+var rando = function(){
+    var obstacles = [];
+    var playerOne = [];
+
+    var randomIndex = parseInt(99 + Math.random());
+
+while (obstacles.length < 10) {
+    if (obstacles.indexOf(randomIndex) === -1){
+        obstacles.push(randomIndex);
+
+        var drawObstacle = document.getElementById('square' + randomIndex).style.backgroundColor = 'yellow';
+    }
+}
+
+while (playerOne.length < 1){
+    if (playerOne.indexOf(randomIndex) === -1){
+        playerOne.push(randomIndex);
+
+        var drawPlayerOne = document.getElementById('square' + randomIndex).style.backgroundColor = 'red';
+    }
+}
+
+};*/
 var grid = document.getElementById("grid-box");
 
 for (var i = 1; i <= 100; i++) {
@@ -72,7 +106,9 @@ while (playerOne.length < 1) { // Stop only if 2 squares are added
   // Only add the square if it doesn't exist already
   if (playerOne.indexOf(randomIndex) === -1) {
     playerOne.push(randomIndex);
+    //$('#square'+ randomIndex).css("background-image", "url(/img/food.png' no-repeat");
     document.getElementById('square' + randomIndex).style.backgroundColor = 'red';
+
 
   }
 }
