@@ -1,11 +1,5 @@
 
-/*function getXYPosition(square) {
-    return {
-        x: (square) % 10
-        ,
-        y: Math.floor((square) / 10)
-    }
-}
+/*
 
 function getSquareValue(xPos, yPos) {
     return yPos * 10 + xPos;

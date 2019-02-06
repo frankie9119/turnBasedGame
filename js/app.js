@@ -1,7 +1,6 @@
 
-
-
 var grid = document.getElementById("grid-box");
+
 
 for (var i = 1; i <= 100; i++) {
   var square = document.createElement("div");
@@ -22,8 +21,6 @@ while (obstacles.length < 10) { // Stop only if 10 squares are added
     var drawObstacle = document.getElementById('square' + randomIndex);
     $(drawObstacle).addClass("ob")
     
-
-   
     //obstacles.appendChild(square + randomIndex);
 
   }
