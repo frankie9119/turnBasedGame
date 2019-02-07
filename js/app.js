@@ -1,7 +1,7 @@
 
 var grid = document.getElementById("grid-box");
 
-
+// CREATE GRID
 for (var i = 1; i <= 100; i++) {
   var square = document.createElement("div");
   square.className = 'square';
@@ -9,6 +9,7 @@ for (var i = 1; i <= 100; i++) {
   grid.appendChild(square);
 }
 
+// DRAW OBSTACLES 
 var obstacles = []; // Stores the squares index placed
 
 while (obstacles.length < 10) { // Stop only if 10 squares are added
@@ -26,7 +27,7 @@ while (obstacles.length < 10) { // Stop only if 10 squares are added
   }
 }
 
-
+// DRAW PLAYER ONE
 var playerOne = []; // Stores the squares index placed
 
 while (playerOne.length < 1) { // Stop only if 2 squares are added
@@ -45,7 +46,9 @@ while (playerOne.length < 1) { // Stop only if 2 squares are added
 }
 
 
+// !! DEFINE MOVEMENT !!
 
+// RIGHT MOVEMENT
 $('#button_right').on('click', function(){
   $pOne = $('.pOne')
   $pOneNext = $pOne.next();
@@ -53,10 +56,46 @@ $('#button_right').on('click', function(){
   $pOneNext.addClass('pOne');
 });
 
-
+// LEFT MOVEMENT
 $('#button_left').on('click', function(){
   $pOne = $('.pOne')
   $pOnePrev = $pOne.prev();
   $pOne.removeClass('pOne');
   $pOnePrev.addClass('pOne');
 });
+
+// UP MOVEMENT
+$('#button_up').on('click', function(){
+  console.log('up works');
+
+  $pOne = $('.pOne')
+  var id = $pOne.attr('id')
+  console.log(id);
+
+  var idNumber = +id.slice(6);
+  var idMove = idNumber - 10
+  console.log(idMove)
+
+  var idUpMove = 'square' + idMove;
+  $pOne.removeClass('pOne');
+  //$('#' + idUpMove).removeClass('pOne');
+  $('#' + idUpMove).addClass('pOne');
+
+  //$pOneUp = $pOne.pre();
+  // write code to move up (-10)
+
+  //$pOne.removeClass('pOne');
+  //$pOnePrev.addClass('pOne');
+});
+
+// DOWN MOVEMENT
+
+
+
+
+
+
+
+
+
+
