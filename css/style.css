@@ -13,7 +13,7 @@ body{
 #player-1{
 	background-color: #5b97b1;
 	width: 200px;
-	border: 2px solid blue;
+	
 	text-align: center;
 	margin-left: 100px;
 	
@@ -29,12 +29,10 @@ body{
 
 #player-2{
 	background-color: pink;
-	border: 2px solid blue;
+	
 	width: 200px;
 	text-align: center;
 	margin-right: 100px;
-	
-	
 }
 
 
@@ -84,13 +82,21 @@ body{
 .ob{
 	background-image: url("img/wood.png");
 }
-.pOne{
+.p-0{
 	background-image: url("img/p3.png");
+}
+.p-1{
+	background-image: url("img/food.png");
+}
+.active{
+	border: 10px solid red;
+}
+.move{
+	text-align: center;
 }
 
 
-
-
+.active { background-color: #f7f7f7; }
 
 
 
