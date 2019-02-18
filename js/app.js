@@ -116,8 +116,9 @@ $('#button_right').on('click', function(){
   $pOne = $('.p-' + activePlayer)
   $pOneNext = $pOne.next();
  
-
-  if ($pOneNext.hasClass("ob")){
+  if ($pOneNext.hasClass("p-1")){
+    alert('FIRE !!!')
+  }else if ($pOneNext.hasClass("ob")){
   alert('collision !!!!!!!!')
 } else {
    $pOne.removeClass('p-' + activePlayer);
@@ -160,12 +161,14 @@ $('#button_up').on('click', function(){
   }
 
   $pOne = $('.p-' + activePlayer)
-  var id = $pOne.attr('id')
+  var id = $pOne.attr('id') // in which square is pActive
+
   var idNumber = +id.slice(6);
   var idMove = idNumber - 10
   var idUpMove = 'square' + idMove;
 
   console.log('going up test')
+
   $pOne.removeClass('p-' + activePlayer);
   $('#' + idUpMove).addClass('p-' + activePlayer);
 
