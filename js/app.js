@@ -3,7 +3,7 @@
 
 
 
-
+let moveCounter = 0;
 
 
 var grid = document.getElementById("grid-box");
@@ -91,34 +91,82 @@ var activePlayer = 0;
 
 
 //})
+  let items = $(".ob").attr("class").split(' ');
+  for (var i = 0; i<items.length; i++) {
+  if (items[i] === '.p-0') {
+   alert('COLLISION')
+  }
+}
+  if ($( ".p-0" ).hasClass( "ob" )){
+    alert('collision !!!') 
+  }
 
 // RIGHT MOVEMENT
 $('#button_right').on('click', function(){
+
+  moveCounter += 1;
+
+  if (moveCounter >3 ){
+    moveCounter = 0;
+    console.log('more then 3 move')
+    $( "#done" ).trigger( "click" );
+  }
+  console.log(moveCounter);
+
   $pOne = $('.p-' + activePlayer)
-  //$player = $('.p-' + activePlayer)
   $pOneNext = $pOne.next();
-  $pOne.removeClass('p-' + activePlayer);
+ 
+
+  if ($pOneNext.hasClass("ob")){
+  alert('collision !!!!!!!!')
+} else {
+   $pOne.removeClass('p-' + activePlayer);
   $pOneNext.addClass('p-' + activePlayer);
+}
 });
 
-// LEFT MOVEMENT
+
+
+// ___________ LEFT MOVEMENT //
 $('#button_left').on('click', function(){
+   moveCounter += 1;
+
+  if (moveCounter >3 ){
+    moveCounter = 0;
+    console.log('more then 3 move')
+    $( "#done" ).trigger( "click" );
+  }
+
   $pOne = $('.p-' + activePlayer)
   $pOnePrev = $pOne.prev();
+
+  if ($pOnePrev.hasClass("ob")){
+    alert('collision !!!!!!!!!')
+  } else{
   $pOne.removeClass('p-' + activePlayer);
   $pOnePrev.addClass('p-' + activePlayer);
+  }
 });
 
 
-// UP MOVEMENT
+// ________ UP MOVEMENT //
 $('#button_up').on('click', function(){
+   moveCounter += 1;
+
+  if (moveCounter >3 ){
+    moveCounter = 0;
+    console.log('more then 3 move')
+    $( "#done" ).trigger( "click" );
+  }
+
   $pOne = $('.p-' + activePlayer)
   var id = $pOne.attr('id')
   var idNumber = +id.slice(6);
   var idMove = idNumber - 10
   var idUpMove = 'square' + idMove;
+
+  console.log('going up test')
   $pOne.removeClass('p-' + activePlayer);
-  //$('#' + idUpMove).removeClass('pOne');
   $('#' + idUpMove).addClass('p-' + activePlayer);
 
   //$pOneUp = $pOne.pre();
@@ -130,6 +178,14 @@ $('#button_up').on('click', function(){
 
 // DOWN MOVEMENT
 $('#button_down').on('click', function(){
+   moveCounter += 1;
+  console.log(moveCounter);
+
+  if (moveCounter >3 ){
+    moveCounter = 0;
+    console.log('more then 3 move')
+    $( "#done" ).trigger( "click" );
+  }
   $pOne = $('.p-' + activePlayer)
   var id = $pOne.attr('id')
   var idNumber = +id.slice(6);
@@ -148,6 +204,19 @@ $('#done').on('click', function(){
   document.querySelector('.player-0').classList.toggle('active');
   document.querySelector('.player-1').classList.toggle('active');
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -83,7 +83,8 @@ body{
 	background-image: url("img/wood.png");
 }
 .p-0{
-	background-image: url("img/p3.png");
+	background-color: red;
+	/*background-image: url("img/p3.png");*/
 }
 .p-1{
 	background-image: url("img/food.png");
