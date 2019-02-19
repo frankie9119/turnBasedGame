@@ -99,6 +99,24 @@ body{
 
 .active { background-color: #f7f7f7; }
 
+/* WEAPONS */
+
+.w-1{
+	background-image: url("img/weapon_1.png");
+}
+.w-{
+	background-image: url("img/weapon_2.png");
+}
+
+.w-{
+	background-image: url("img/weapon_3.png");
+}
+
+.w-{
+	background-image: url("img/weapon_4.png");
+}
+
+
 
 
 

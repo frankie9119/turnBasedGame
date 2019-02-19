@@ -1,8 +1,4 @@
 
-
-
-
-
 let moveCounter = 0;
 
 
@@ -16,81 +12,14 @@ for (var i = 1; i <= 100; i++) {
   grid.appendChild(square);
 }
 
-// DRAW OBSTACLES 
-var obstacles = []; // Stores the squares index placed
 
-while (obstacles.length < 10) { // Stop only if 10 squares are added
-  var randomIndex = parseInt(99 * Math.random()); // Generate a random number between 0 and 99
-
-  // Only add the square if it doesn't exist already
-  if (obstacles.indexOf(randomIndex) === -1) {
-    obstacles.push(randomIndex);
-
-    var drawObstacle = document.getElementById('square' + randomIndex);
-    $(drawObstacle).addClass("ob")
-    
-    //obstacles.appendChild(square + randomIndex);
-
-  }
-}
-
-// DRAW PLAYER ONE
-var playerOne = []; // Stores the squares index placed
-// var player
-while (playerOne.length < 1) {
-//player
- // Stop only if 2 squares are added
-  var randomIndex = parseInt(99 * Math.random()); // Generate a random number between 0 and 99
-
-  // Only add the square if it doesn't exist already
-  if (playerOne.indexOf(randomIndex) === -1) {
-    playerOne.push(randomIndex);
-    //$('#square'+ randomIndex).css("background-image", "url(/img/food.png' no-repeat");
-   
-    var drawPone = document.getElementById('square' + randomIndex);
-    $(drawPone).addClass("p-0")
-    //("p-0")
-
-
-  }
-}
-
-// DRAW PLAYER TWO
-var playerTwo = []; // Stores the squares index placed
-
-while (playerTwo.length < 1) { // Stop only if 2 squares are added
-  var randomIndex = parseInt(99 * Math.random()); // Generate a random number between 0 and 99
-
-  // Only add the square if it doesn't exist already
-  if (playerTwo.indexOf(randomIndex) === -1) {
-    playerTwo.push(randomIndex);
-    //$('#square'+ randomIndex).css("background-image", "url(/img/food.png' no-repeat");
-   
-    var drawPtwo = document.getElementById('square' + randomIndex);
-    $(drawPtwo).addClass("p-1")
-    //("p-1")
-  }
-};
-
-
-// !! DEFINE MOVEMENT !!
-/*
-$('#done').on('click', function(){ 
-  var playing = $('p-' + activePlayer)
-
-  if (playing === 0) {
-    activePlayer = 1;
-  } else {
-    activePlayer = 0;
-  }
-
-})*/
 var activePlayer = 0;
 
 //document.querySelector('.done').addEventListneder('click', function(){
 
 
 //})
+/*
   let items = $(".ob").attr("class").split(' ');
   for (var i = 0; i<items.length; i++) {
   if (items[i] === '.p-0') {
@@ -99,6 +28,11 @@ var activePlayer = 0;
 }
   if ($( ".p-0" ).hasClass( "ob" )){
     alert('collision !!!') 
+  }
+*/
+
+ if ($(".p-0").hasClass('w-1')){
+    alert('WEAPON !!!') 
   }
 
 // RIGHT MOVEMENT
@@ -118,8 +52,10 @@ $('#button_right').on('click', function(){
  
   if ($pOneNext.hasClass("p-1")){
     alert('FIRE !!!')
-  }else if ($pOneNext.hasClass("ob")){
-  alert('collision !!!!!!!!')
+  }else if ($pOneNext.hasClass('w-1')){
+    alert('WEAPON !!!') 
+} else if ($pOneNext.hasClass("ob")){
+  alert('collision !!')
 } else {
    $pOne.removeClass('p-' + activePlayer);
   $pOneNext.addClass('p-' + activePlayer);
