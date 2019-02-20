@@ -1,163 +1,176 @@
-
 let moveCounter = 0;
+let activePlayer = 0;
 
+
+
+
+
+//_______________________________________________________BEGIN Create grid
 
 var grid = document.getElementById("grid-box");
 
-// CREATE GRID
+
 for (var i = 1; i <= 100; i++) {
-  var square = document.createElement("div");
-  square.className = 'square';
-  square.id = 'square' + i;
-  grid.appendChild(square);
+    var square = document.createElement("div");
+    square.className = 'square';
+    square.id = 'square' + i;
+    grid.appendChild(square);
 }
 
-
-var activePlayer = 0;
-
-//document.querySelector('.done').addEventListneder('click', function(){
+//______________________________________________________END Create grid
 
 
-//})
-/*
-  let items = $(".ob").attr("class").split(' ');
-  for (var i = 0; i<items.length; i++) {
-  if (items[i] === '.p-0') {
-   alert('COLLISION')
-  }
-}
-  if ($( ".p-0" ).hasClass( "ob" )){
-    alert('collision !!!') 
-  }
-*/
 
- if ($(".p-0").hasClass('w-1')){
-    alert('WEAPON !!!') 
-  }
 
-// RIGHT MOVEMENT
-$('#button_right').on('click', function(){
+//______________________________________________________BEGIN right movement
 
-  moveCounter += 1;
+$('#button_right').on('click', function() {
 
-  if (moveCounter >3 ){
-    moveCounter = 0;
-    console.log('more then 3 move')
-    $( "#done" ).trigger( "click" );
-  }
-  console.log(moveCounter);
+    moveCounter += 1;
 
-  $pOne = $('.p-' + activePlayer)
-  $pOneNext = $pOne.next();
- 
-  if ($pOneNext.hasClass("p-1")){
-    alert('FIRE !!!')
-  }else if ($pOneNext.hasClass('w-1')){
-    alert('WEAPON !!!') 
-} else if ($pOneNext.hasClass("ob")){
-  alert('collision !!')
-} else {
-   $pOne.removeClass('p-' + activePlayer);
-  $pOneNext.addClass('p-' + activePlayer);
-}
+
+    console.log(moveCounter);
+
+    $pOne = $('.p-' + activePlayer)
+    $pOneNext = $pOne.next();
+
+    if ($pOneNext.hasClass("p-1")) {
+        alert('FIRE !!!')
+    } else if ($pOneNext.hasClass('w-1')) {
+        alert('WEAPON !!!')
+    } else if ($pOneNext.hasClass("ob")) {
+        alert('collision !!')
+    } else {
+        $pOne.removeClass('p-' + activePlayer);
+        $pOneNext.addClass('p-' + activePlayer);
+    }
+
+    if (moveCounter >=3) {
+        moveCounter = 0;
+        console.log('more then 3 move')
+        $("#done").trigger("click");
+    }
 });
 
+//______________________________________________________END right movement
 
 
-// ___________ LEFT MOVEMENT //
-$('#button_left').on('click', function(){
-   moveCounter += 1;
 
-  if (moveCounter >3 ){
-    moveCounter = 0;
-    console.log('more then 3 move')
-    $( "#done" ).trigger( "click" );
-  }
+//______________________________________________________BEGIN left movement
 
-  $pOne = $('.p-' + activePlayer)
-  $pOnePrev = $pOne.prev();
+$('#button_left').on('click', function() {
+    moveCounter += 1;
 
-  if ($pOnePrev.hasClass("ob")){
-    alert('collision !!!!!!!!!')
-  } else{
-  $pOne.removeClass('p-' + activePlayer);
-  $pOnePrev.addClass('p-' + activePlayer);
-  }
+    $pOne = $('.p-' + activePlayer)
+    $pOnePrev = $pOne.prev();
+
+    if ($pOnePrev.hasClass("ob")) {
+        alert('collision !!!!!!!!!')
+    } else {
+        $pOne.removeClass('p-' + activePlayer);
+        $pOnePrev.addClass('p-' + activePlayer);
+    }
+
+
+    if (moveCounter >=3) {
+        moveCounter = 0;
+        console.log('more then 3 move')
+        $("#done").trigger("click");
+    }
+
 });
 
+//______________________________________________________END left movement
 
-// ________ UP MOVEMENT //
-$('#button_up').on('click', function(){
-   moveCounter += 1;
 
-  if (moveCounter >3 ){
-    moveCounter = 0;
-    console.log('more then 3 move')
-    $( "#done" ).trigger( "click" );
-  }
 
-  $pOne = $('.p-' + activePlayer)
-  var id = $pOne.attr('id') // in which square is pActive
+//______________________________________________________BEGIN up movement
 
-  var idNumber = +id.slice(6);
-  var idMove = idNumber - 10
-  var idUpMove = 'square' + idMove;
+$('#button_up').on('click', function() {
+    moveCounter += 1;
 
-  console.log('going up test')
 
-  $pOne.removeClass('p-' + activePlayer);
-  $('#' + idUpMove).addClass('p-' + activePlayer);
 
-  //$pOneUp = $pOne.pre();
-  // write code to move up (-10)
+    $pOne = $('.p-' + activePlayer)
+    var id = $pOne.attr('id') // in which square is pActive
 
-  //$pOne.removeClass('pOne');
-  //$pOnePrev.addClass('pOne');
+    var idNumber = +id.slice(6);
+    var idMove = idNumber - 10
+    var idUpMove = 'square' + idMove;
+
+    console.log('going up test')
+
+    $pOne.removeClass('p-' + activePlayer);
+    $('#' + idUpMove).addClass('p-' + activePlayer);
+
+        if (moveCounter >=3) {
+        moveCounter = 0;
+        console.log('more then 3 move')
+        $("#done").trigger("click");
+    }
+
+
 });
 
-// DOWN MOVEMENT
-$('#button_down').on('click', function(){
-   moveCounter += 1;
-  console.log(moveCounter);
+//______________________________________________________END up movement
 
-  if (moveCounter >3 ){
-    moveCounter = 0;
-    console.log('more then 3 move')
-    $( "#done" ).trigger( "click" );
-  }
-  $pOne = $('.p-' + activePlayer)
-  var id = $pOne.attr('id')
-  var idNumber = +id.slice(6);
-  var idMove = idNumber + 10
 
-  var idDownMove = 'square' + idMove;
-  $pOne.removeClass('p-' + activePlayer);
-  //$('#' + idUpMove).removeClass('pOne');
-  $('#' + idDownMove).addClass('p-' + activePlayer);
+//______________________________________________________BEGIN down movement
+
+$('#button_down').on('click', function() {
+    moveCounter += 1;
+    console.log(moveCounter);
+
+
+    $pOne = $('.p-' + activePlayer)
+    var id = $pOne.attr('id');
+    console.log(id)
+
+    var idNumber = +id.slice(6);
+    var idMove = idNumber + 10;
+
+
+
+    var idDownMove = 'square' + idMove;
+    $pOne.removeClass('p-' + activePlayer);
+    //$('#' + idUpMove).removeClass('pOne');
+       
+
+ //_______________________________________________________________________BEGIN Get all classes
+      let classList = $('#' + idDownMove).attr("class").split(' ');
+      console.log(classList)
+  //______________________________________________________________________END get all classes
+
+
+
+
+    $('#' + idDownMove).addClass('p-' + activePlayer);
+
+        if (moveCounter >=3) {
+        moveCounter = 0;
+        console.log('more then 3 move')
+        $("#done").trigger("click");
+    }
+
+
 });
 
+//______________________________________________________END down movement
 
-$('#done').on('click', function(){
-  activePlayer === 0 ? activePlayer =1 : activePlayer = 0;
 
-  document.querySelector('.player-0').classList.toggle('active');
-  document.querySelector('.player-1').classList.toggle('active');
+
+
+
+
+//____________________________________________________________________________BEGIN done button
+
+
+$('#done').on('click', function() {
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    moveCounter = 0;                                                      // set move to 0
+    
+    document.querySelector('.player-0').classList.toggle('active');
+    document.querySelector('.player-1').classList.toggle('active');
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//__________________________________________________________________________END done button
