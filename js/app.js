@@ -2,9 +2,6 @@ let moveCounter = 0;
 let activePlayer = 0;
 
 
-
-
-
 //_______________________________________________________BEGIN Create grid
 
 var grid = document.getElementById("grid-box");
@@ -96,6 +93,9 @@ $('#button_up').on('click', function() {
 
     var idNumber = +id.slice(6);
     var idMove = idNumber - 10
+    if(idMove < 0){
+        idMove +=10;
+    }
     var idUpMove = 'square' + idMove;
 
     console.log('going up test')
@@ -128,11 +128,11 @@ $('#button_down').on('click', function() {
 
     var idNumber = +id.slice(6);
     var idMove = idNumber + 10;
-
-
-
-    var idDownMove = 'square' + idMove;
+     if(idMove <= 100){
+        var idDownMove = 'square' + idMove;
     $pOne.removeClass('p-' + activePlayer);
+    }
+    
     //$('#' + idUpMove).removeClass('pOne');
        
 
