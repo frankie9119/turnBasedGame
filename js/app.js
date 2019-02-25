@@ -36,7 +36,7 @@ $('#button_right').on('click', function() {
     } else if ($pOneNext.hasClass('w-1')) {
         alert('WEAPON !!!')
     } else if ($pOneNext.hasClass("ob")) {
-        alert('collision !!')
+        return false;
     } else {
         $pOne.removeClass('p-' + activePlayer);
         $pOneNext.addClass('p-' + activePlayer);
@@ -62,7 +62,7 @@ $('#button_left').on('click', function() {
     $pOnePrev = $pOne.prev();
 
     if ($pOnePrev.hasClass("ob")) {
-        alert('collision !!!!!!!!!')
+        return false;
     } else {
         $pOne.removeClass('p-' + activePlayer);
         $pOnePrev.addClass('p-' + activePlayer);
@@ -100,6 +100,10 @@ $('#button_up').on('click', function() {
 
     console.log('going up test')
 
+     if($('#' + idUpMove).hasClass('ob')){
+      return false;
+    }
+
     $pOne.removeClass('p-' + activePlayer);
     $('#' + idUpMove).addClass('p-' + activePlayer);
 
@@ -128,10 +132,16 @@ $('#button_down').on('click', function() {
 
     var idNumber = +id.slice(6);
     var idMove = idNumber + 10;
+    var idDownMove = 'square' + idMove;
+     if($('#' + idDownMove).hasClass('ob')){
+      return false;
+        }
      if(idMove <= 100){
-        var idDownMove = 'square' + idMove;
+        
+
     $pOne.removeClass('p-' + activePlayer);
     }
+      
     
     //$('#' + idUpMove).removeClass('pOne');
        
@@ -140,7 +150,7 @@ $('#button_down').on('click', function() {
       let classList = $('#' + idDownMove).attr("class").split(' ');
       console.log(classList)
   //______________________________________________________________________END get all classes
-
+     
 
 
 
