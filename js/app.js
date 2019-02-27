@@ -2,6 +2,43 @@ let moveCounter = 0;
 let activePlayer = 0;
 
 
+
+
+//_______________________________________________________BEGIN check for classes
+
+
+function selectElementAndCheckClass(element, className) {
+  let arrOfClasses = $(element).attr('class').split(" ");
+
+  for (var i = 0; i < arrOfClasses.length; i++) {
+
+    if (arrOfClasses[i] === className) {
+
+      alert('Weapon detected via class checker function')
+    } 
+  }
+  
+}
+
+
+
+
+//______________________________________________________END check for classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //_______________________________________________________BEGIN Create grid
 
 var grid = document.getElementById("grid-box");
@@ -24,6 +61,10 @@ for (var i = 1; i <= 100; i++) {
 $('#right-button').on('click', function() {
 
     moveCounter += 1;
+    
+
+    selectElementAndCheckClass(".p-0", "w-1")
+    selectElementAndCheckClass(".p-0", "w-2")
 
 
     console.log(moveCounter);
@@ -134,6 +175,7 @@ $('#down-button').on('click', function() {
     var idMove = idNumber + 10;
     var idDownMove = 'square' + idMove;
      if($('#' + idDownMove).hasClass('ob')){
+        console.log(moveCounter)
       return false;
         }
      if(idMove <= 100){
