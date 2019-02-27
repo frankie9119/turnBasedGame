@@ -1,0 +1,177 @@
+@import url(https://fonts.googleapis.com/css?family=Prosto+One);
+@font-face {
+  font-family: 'Pretendo';
+  src: url("http://remleyinvitational.com/fonts/pretendo-webfont.eot");
+  src: url("http://remleyinvitational.com/fonts/pretendo-webfont.woff") format("woff"), url("http://remleyinvitational.com/fonts/pretendo-webfont.ttf") format("truetype"), url("http://remleyinvitational.com/fonts/pretendo-webfont.svg#svgPretendo") format("svg");
+  /* Legacy iOS */
+}
+.controller {
+  margin-left: 24%;
+  font-family: "Prosto One";
+}
+
+#controller {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 1px;
+  background-color: #ccc;
+}
+
+#inset-area {
+  position: absolute;
+  width: 420px;
+  height: 145px;
+  top: 20px;
+  left: 25px;
+  bottom: 25px;
+  border-radius: 5px;
+  background-color: #202020;
+}
+
+.button-box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+.button-box .red-button {
+  height: 42px;
+  width: 42px;
+  margin-top: 2px;
+  margin-left: 2px;
+  background-color: #cc0000;
+  border-radius: 50%;
+  border-bottom: 4px solid #660000;
+  border-right: 4px solid #660000;
+  cursor: pointer;
+}
+.button-box .red-button::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 34px;
+  height: 34px;
+  left: 4px;
+  top: 4px;
+  border-radius: 50%;
+  border-top: 2px solid #880000;
+  border-left: 2px solid #880000;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  background-color: #cc0000;
+}
+
+
+#b-box {
+  left: 290px;
+  top: 50px;
+}
+#b-box::after {
+  content: "Done";
+  font-weight: bolder;
+  position: absolute;
+  right: 0;
+  top: 53px;
+  color: #cc0000;
+}
+#b-box #b-button:active {
+  margin-top: 6px;
+  margin-left: 6px;
+  border: 0px;
+}
+#b-box #b-button:active::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 34px;
+  height: 34px;
+  left: 6px;
+  top: 6px;
+  border-radius: 50%;
+  border-top: 2px solid #880000;
+  border-left: 2px solid #880000;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  background-color: #cc0000;
+}
+
+
+
+#d-pad {
+  position: absolute;
+  top: 50px;
+  left: 145px;
+  height: 100px;
+  width: 100px;
+}
+#d-pad .d-pad-button {
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  background-color: black;
+  color: #444;
+  font-size: 28px;
+  text-align: center;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
+}
+#d-pad #up-button {
+  left: 33px;
+  box-shadow: -3px 0 0 #888;
+  transform: rotate(180deg);
+}
+#d-pad #up-button:active {
+  transform: rotate(180deg) rotate3d(1, 0, 0, 30deg);
+  box-shadow: -1px 0 0 #888;
+}
+#d-pad #left-button {
+  top: 33px;
+  box-shadow: 3px 0px 0px #888;
+  transform: rotate(90deg);
+}
+#d-pad #left-button:active {
+  transform: rotate(90deg) rotate3d(1, 0, 0, 20deg);
+  box-shadow: 1px 0 0 #888;
+}
+#d-pad #right-button {
+  top: 33px;
+  left: 66px;
+  box-shadow: -3px 3px 0 #888;
+  transform: rotate(270deg);
+}
+#d-pad #right-button:active {
+  transform: rotate(270deg) rotate3d(1, 0, 0, 20deg);
+  box-shadow: -1px 1px 0 #888;
+}
+#d-pad #down-button {
+  left: 33px;
+  top: 66px;
+  box-shadow: 3px 1px 0px #888;
+}
+#d-pad #down-button:active {
+  transform: rotate3d(1, 0, 0, 30deg);
+  box-shadow: 1px 0 0 #888;
+}
+#d-pad #middle-part {
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  top: 33px;
+  left: 33px;
+  background-color: black;
+}
+#d-pad #middle-part::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  margin: 7px 0 0 7px;
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+  border-radius: 50%;
+}
+
+

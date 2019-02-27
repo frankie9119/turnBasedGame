@@ -21,7 +21,7 @@ for (var i = 1; i <= 100; i++) {
 
 //______________________________________________________BEGIN right movement
 
-$('#button_right').on('click', function() {
+$('#right-button').on('click', function() {
 
     moveCounter += 1;
 
@@ -45,7 +45,7 @@ $('#button_right').on('click', function() {
     if (moveCounter >=3) {
         moveCounter = 0;
         console.log('more then 3 move')
-        $("#done").trigger("click");
+        $("#b-button").trigger("click");
     }
 });
 
@@ -55,7 +55,7 @@ $('#button_right').on('click', function() {
 
 //______________________________________________________BEGIN left movement
 
-$('#button_left').on('click', function() {
+$('#left-button').on('click', function() {
     moveCounter += 1;
 
     $pOne = $('.p-' + activePlayer)
@@ -72,7 +72,7 @@ $('#button_left').on('click', function() {
     if (moveCounter >=3) {
         moveCounter = 0;
         console.log('more then 3 move')
-        $("#done").trigger("click");
+        $("#b-button").trigger("click");
     }
 
 });
@@ -83,7 +83,7 @@ $('#button_left').on('click', function() {
 
 //______________________________________________________BEGIN up movement
 
-$('#button_up').on('click', function() {
+$('#up-button').on('click', function() {
     moveCounter += 1;
 
 
@@ -110,7 +110,7 @@ $('#button_up').on('click', function() {
         if (moveCounter >=3) {
         moveCounter = 0;
         console.log('more then 3 move')
-        $("#done").trigger("click");
+        $("#b-button").trigger("click");
     }
 
 
@@ -121,7 +121,7 @@ $('#button_up').on('click', function() {
 
 //______________________________________________________BEGIN down movement
 
-$('#button_down').on('click', function() {
+$('#down-button').on('click', function() {
     moveCounter += 1;
     console.log(moveCounter);
 
@@ -159,7 +159,7 @@ $('#button_down').on('click', function() {
         if (moveCounter >=3) {
         moveCounter = 0;
         console.log('more then 3 move')
-        $("#done").trigger("click");
+        $("#b-button").trigger("click");
     }
 
 
@@ -175,7 +175,7 @@ $('#button_down').on('click', function() {
 //____________________________________________________________________________BEGIN done button
 
 
-$('#done').on('click', function() {
+$('#b-button').on('click', function() {
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     moveCounter = 0;                                                      // set move to 0
     

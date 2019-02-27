@@ -3,72 +3,90 @@ body{
 }
 .container{
 	display: flex;
-	text-align: center;
+	margin: auto;
 	width: 100%;
 	height: 400px;
-	padding-top: 5%;
+	padding-top: 2px;
 	padding-bottom: 5%;
 }
 
-#player-1{
-	background-color: #5b97b1;
-	width: 200px;
+
+.player-container {
+  width: 130px;
+  height: 460px;
+  float: left;
+  position: relative;
+}
+.player-container::before {
+  content: "";
+  width: 120px;
+  height: 70px;
+  position: absolute;
+  background: #000;
+  z-index: -1;
+  top: -7px;
+}
+
+.player-container.player-0 {
+  background: #02D5E6;
+  border-radius: 3px;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+ 
+}
+.player-container.player-0::before {
+  top: -5px;
+  left: -2px;
+  border-top-left-radius: 75px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+
+.player-container.player-1 {
+  background: #F85422;
+  border-radius: 3px;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+ 
+}
+.player-container.player-1::before {
+  top: -5px;
+  right: -2px;
+  border-top-right-radius: 75px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+
+
+/*
+.player-container{
+	background-color: white;
+	border: 1px solid black;
 	
+	
+}*/
+.player-0{
+	background-color: white;
+	width: 200px;
 	text-align: center;
 	margin-left: 100px;
-	
+}
+.player-1{
+	background-color: #5b97b1;
+	width: 200px;
+	text-align: center;
+	margin-right: 100px;
 }
 #grid-box
 {	
 	background-image: url("img/ground2.jpg");
 	width: 420px;
 	height: 420px;
-	padding-left: 0px;
-	
+	border: 20px solid #404040;
 }
 
-#player-2{
-	background-color: pink;
-	
-	width: 200px;
-	text-align: center;
-	margin-right: 100px;
-}
-
-
-
-
-.draggable { 
-	background-color: blue; 
-	width: 40px; 
-	height: 40px; 
-	float: left; 
-	margin: 0 10px 10px 0; 
-	font-size: .9em;}
-    .ui-widget-header p, .ui-widget-content p { margin: 0; }
-#snaptarget { height: 140px; }
-
-
-
-
-
-.dropbox{
-	width: 400px;
-	height: 400px;
-    background-color:#c4c4c4;
-    width:40px;
-    height:40px;
-    float:left;
-    margin: 1px 1px 1px 1px;
-}
-#grid-box {
-
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
-  font-size: 0;
-  position: relative;
-}
 
 #grid-box>div.square {
   font-size: 1rem;
@@ -90,7 +108,7 @@ body{
 	background-image: url("img/food.png");
 }
 .active{
-	border: 10px solid red;
+	border: 5px solid red;
 }
 .move{
 	text-align: center;
