@@ -1,6 +1,10 @@
 body{
 	background-color: #b4cdd4;
 }
+.active{
+  background-color: red;
+  border: 5px solid red;
+}
 .container{
 	display: flex;
 	margin: auto;
@@ -9,8 +13,6 @@ body{
 	padding-top: 2px;
 	padding-bottom: 5%;
 }
-
-
 .player-container {
   width: 130px;
   height: 460px;
@@ -26,13 +28,11 @@ body{
   z-index: -1;
   top: -7px;
 }
-
 .player-container.player-0 {
-  background: #02D5E6;
+  background: #fdc9c5;
   border-radius: 3px;
   border-top-left-radius: 75px;
   border-bottom-left-radius: 75px;
- 
 }
 .player-container.player-0::before {
   top: -5px;
@@ -41,14 +41,11 @@ body{
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-
-
 .player-container.player-1 {
-  background: #F85422;
+  background: #fdc9c5;
   border-radius: 3px;
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;
- 
 }
 .player-container.player-1::before {
   top: -5px;
@@ -58,23 +55,17 @@ body{
   border-bottom-right-radius: 3px;
 }
 
-
-
 /*
 .player-container{
 	background-color: white;
 	border: 1px solid black;
-	
-	
 }*/
 .player-0{
-	background-color: white;
 	width: 200px;
 	text-align: center;
 	margin-left: 100px;
 }
 .player-1{
-	background-color: #5b97b1;
 	width: 200px;
 	text-align: center;
 	margin-right: 100px;
@@ -86,8 +77,6 @@ body{
 	height: 420px;
 	border: 20px solid #404040;
 }
-
-
 #grid-box>div.square {
   font-size: 1rem;
   vertical-align: top;
@@ -101,37 +90,36 @@ body{
 	background-image: url("img/wood.png");
 }
 .p-0{
-	background-color: red;
+	background-image: url("img/p0.png");
+  background-repeat: no-repeat;
 	/*background-image: url("img/p3.png");*/
 }
 .p-1{
-	background-image: url("img/food.png");
-}
-.active{
-	border: 5px solid red;
+	background-image: url("img/p1.png");
+  background-repeat:no-repeat;
 }
 .move{
 	text-align: center;
 }
 
-
-.active { background-color: #f7f7f7; }
-
 /* WEAPONS */
 
 .w-1{
 	background-image: url("img/weapon_1.png");
+   background-repeat:no-repeat;
 }
-.w-{
+.w-2{
 	background-image: url("img/weapon_2.png");
+   background-repeat:no-repeat;
 }
 
-.w-{
+.w-3{
 	background-image: url("img/weapon_3.png");
+   background-repeat:no-repeat;
 }
-
-.w-{
+.w-4{
 	background-image: url("img/weapon_4.png");
+   background-repeat:no-repeat;
 }
 
 
