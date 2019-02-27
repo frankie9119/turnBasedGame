@@ -12,6 +12,7 @@ body{
 	height: 400px;
 	padding-top: 2px;
 	padding-bottom: 5%;
+
 }
 .player-container {
   width: 130px;
@@ -122,8 +123,22 @@ body{
    background-repeat:no-repeat;
 }
 
-
-
+/*______________ ANIMATION _______ */
+.is-animated {
+    animation-duration: .9s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,75%,0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
 
 
 
