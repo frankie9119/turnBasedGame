@@ -4,6 +4,7 @@ let activePlayer = 0;
 
 
 
+
 //_______________________________________________________BEGIN check for classes
 
 
@@ -71,7 +72,10 @@ $('#right-button').on('click', function() {
 
     moveCounter += 1;
 
-    let weaponPlace = document.getElementById('wp-' + activePlayer);
+    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
+    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
+    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
+    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
     /*let weaponPlace = $('#wp-0');
     selectElementAndCheckClass(".p-0", "w-1")
     selectElementAndCheckClass(".p-0", "w-2")
@@ -93,7 +97,19 @@ $('#right-button').on('click', function() {
    if ($pOneNext.hasClass('w-1')) {
         //alert('WEAPON !!!')
         $(drawWone).removeClass("w-1")
-        $(weaponPlace).addClass("w-1")
+        $(weaponPlace1).addClass("w-1")
+    } else if ($pOneNext.hasClass('w-2')) {
+        //alert('WEAPON !!!')
+        $(drawWtwo).removeClass("w-2")
+        $(weaponPlace2).addClass("w-2")
+    } else if ($pOneNext.hasClass('w-3')) {
+        //alert('WEAPON !!!')
+        $(drawWthree).removeClass("w-3")
+        $(weaponPlace3).addClass("w-3")
+    } else if ($pOneNext.hasClass('w-4')) {
+        //alert('WEAPON !!!')
+        $(drawWfour).removeClass("w-4")
+        $(weaponPlace4).addClass("w-4")
     }
 
 
@@ -124,8 +140,40 @@ $('#right-button').on('click', function() {
 $('#left-button').on('click', function() {
     moveCounter += 1;
 
+    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
+    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
+    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
+    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
+
     $pOne = $('.p-' + activePlayer)
     $pOnePrev = $pOne.prev();
+
+
+
+if ($pOnePrev.hasClass('w-1')) {
+        //alert('WEAPON !!!')
+        $(drawWone).removeClass("w-1")
+        $(weaponPlace1).addClass("w-1")
+
+    } else if ($pOnePrev.hasClass('w-2')) {
+        //alert('WEAPON !!!')
+        $(drawWtwo).removeClass("w-2")
+        $(weaponPlace2).addClass("w-2")
+
+    } else if ($pOnePrev.hasClass('w-3')) {
+        //alert('WEAPON !!!')
+        $(drawWthree).removeClass("w-3")
+        $(weaponPlace3).addClass("w-3")
+
+    } else if ($pOnePrev.hasClass('w-4')) {
+        //alert('WEAPON !!!')
+        $(drawWfour).removeClass("w-4")
+        $(weaponPlace4).addClass("w-4")
+    }
+
+
+
+
 
     if ($pOnePrev.hasClass("ob")) {
         return false;
@@ -152,7 +200,10 @@ $('#left-button').on('click', function() {
 $('#up-button').on('click', function() {
     moveCounter += 1;
 
-
+    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
+    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
+    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
+    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
 
     $pOne = $('.p-' + activePlayer)
     var id = $pOne.attr('id') // in which square is pActive
@@ -168,6 +219,20 @@ $('#up-button').on('click', function() {
 
      if($('#' + idUpMove).hasClass('ob')){
       return false;
+    }
+
+    if ($('#' + idUpMove).hasClass('w-1')) {    
+        $(drawWone).removeClass("w-1")
+        $(weaponPlace1).addClass("w-1")
+    } else if ($('#' + idUpMove).hasClass('w-2')) {     
+        $(drawWtwo).removeClass("w-2")
+        $(weaponPlace1).addClass("w-2")
+    }else if ($('#' + idUpMove).hasClass('w-3')) {      
+        $(drawWthree).removeClass("w-3")
+        $(weaponPlace1).addClass("w-3")
+    }else if ($('#' + idUpMove).hasClass('w-4')) {
+        $(drawWfour).removeClass("w-4")
+        $(weaponPlace1).addClass("w-4")
     }
 
     $pOne.removeClass('p-' + activePlayer);
@@ -189,6 +254,12 @@ $('#up-button').on('click', function() {
 
 $('#down-button').on('click', function() {
     moveCounter += 1;
+
+    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
+    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
+    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
+    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
+    
     console.log(moveCounter);
 
 
@@ -203,9 +274,26 @@ $('#down-button').on('click', function() {
         console.log(moveCounter)
       return false;
         }
-     if(idMove <= 100){
-        
 
+    if($('#' + idDownMove).hasClass('w-1')){
+        $(drawWone).removeClass("w-1")
+        $(weaponPlace1).addClass("w-1")
+    } else if ($('#' + idDownMove).hasClass('w-2')){
+        $(drawWtwo).removeClass("w-2")
+        $(weaponPlace2).addClass("w-2")
+    }else if ($('#' + idDownMove).hasClass('w-3')){
+        $(drawWthree).removeClass("w-3")
+        $(weaponPlace3).addClass("w-3")
+    }else if ($('#' + idDownMove).hasClass('w-4')){
+        $(drawWfour).removeClass("w-4")
+        $(weaponPlace4).addClass("w-4")
+    }
+
+
+
+
+
+     if(idMove <= 100){
     $pOne.removeClass('p-' + activePlayer);
     }
       

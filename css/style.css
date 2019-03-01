@@ -106,36 +106,39 @@ body{
 }
 
 /* WEAPONS */
-#wp-0, #wp-1{
-  width: 100px;
-  height: 200px;
+#wp1-0, #wp1-1,#wp2-0, #wp2-1,#wp3-0, #wp3-1,#wp4-0, #wp4-1{
+  width: 50px;
+  height: 50px;
   background-color: yellow;
 }
 
 .w-1{
 	background-image: url("img/weapon_1.png");
    background-repeat:no-repeat;
+   position: relative;
+   z-index: 2;
 }
-.w-{
+.w-2{
 	background-image: url("img/weapon_2.png");
    background-repeat:no-repeat;
+      position: relative;
+   z-index: 2;
 }
 
-.w-{
+.w-3{
 	background-image: url("img/weapon_3.png");
    background-repeat:no-repeat;
+      position: relative;
+   z-index: 2;
 }
-.w-{
+.w-4{
 	background-image: url("img/weapon_4.png");
    background-repeat:no-repeat;
+      position: relative;
+   z-index: 2;
 }
 
-#wp{
-  text-align: center;
-  width: 100px;
-  height: 400px;
-  background-color: yellow;
-}
+
 /*______________ ANIMATION _______ */
 .is-animated {
     animation-duration: .9s;
