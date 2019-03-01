@@ -1,5 +1,6 @@
 body{
 	background-color: #b4cdd4;
+  font-family: 'Special Elite', cursive;
 }
 .active{
   background-color: red;
@@ -106,10 +107,17 @@ body{
 }
 
 /* WEAPONS */
+.w0-title, .w1-title{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
 #wp1-0, #wp1-1,#wp2-0, #wp2-1,#wp3-0, #wp3-1,#wp4-0, #wp4-1{
   width: 50px;
   height: 50px;
-  background-color: yellow;
+  margin-left: 35%;
+  border: 2px dashed black;
+  background-color: #8f8f8f;
 }
 
 .w-1{
