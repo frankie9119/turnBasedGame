@@ -2,6 +2,52 @@ let moveCounter = 0;
 let activePlayer = 0;
 
 
+
+
+//_______________________________________________________BEGIN check for classes
+
+
+function selectElementAndCheckClass(element, className) {
+  let arrOfClasses = $(element).attr('class').split(" ");
+  //let weaponPlace = document.getElementById('wp');
+  for (var i = 0; i < arrOfClasses.length; i++) {
+
+    if (arrOfClasses[i] === className) {
+
+      //alert('Weapon detected via class checker function')
+     // $(drawWthree).removeClass("w-3")
+      //$(weaponPlace).addClass("w-3")
+
+      /*
+          if ($pOneNext.hasClass('w-1')) {
+        $(drawWone).removeClass("w-1")
+        $(weaponPlace).addClass("w-1")
+        }
+    */
+    } 
+  }
+  
+}
+
+
+
+
+//______________________________________________________END check for classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //_______________________________________________________BEGIN Create grid
 
 var grid = document.getElementById("grid-box");
@@ -25,16 +71,36 @@ $('#right-button').on('click', function() {
 
     moveCounter += 1;
 
+    let weaponPlace = document.getElementById('wp-' + activePlayer);
+    /*let weaponPlace = $('#wp-0');
+    selectElementAndCheckClass(".p-0", "w-1")
+    selectElementAndCheckClass(".p-0", "w-2")
+    selectElementAndCheckClass(".p-0", "w-3")
+    selectElementAndCheckClass(".p-0", "w-4")
+
+    selectElementAndCheckClass(".p-1", "w-1")
+    selectElementAndCheckClass(".p-1", "w-2")
+    selectElementAndCheckClass(".p-1", "w-3")
+    selectElementAndCheckClass(".p-1", "w-4")
+*/
+
 
     console.log(moveCounter);
 
     $pOne = $('.p-' + activePlayer)
     $pOneNext = $pOne.next();
 
+   if ($pOneNext.hasClass('w-1')) {
+        //alert('WEAPON !!!')
+        $(drawWone).removeClass("w-1")
+        $(weaponPlace).addClass("w-1")
+    }
+
+
+
+
     if ($pOneNext.hasClass("p-1")) {
         alert('FIRE !!!')
-    } else if ($pOneNext.hasClass('w-1')) {
-        alert('WEAPON !!!')
     } else if ($pOneNext.hasClass("ob")) {
         return false;
     } else {
@@ -134,6 +200,7 @@ $('#down-button').on('click', function() {
     var idMove = idNumber + 10;
     var idDownMove = 'square' + idMove;
      if($('#' + idDownMove).hasClass('ob')){
+        console.log(moveCounter)
       return false;
         }
      if(idMove <= 100){

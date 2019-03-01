@@ -93,6 +93,8 @@ body{
 .p-0{
 	background-image: url("img/p0.png");
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
 	/*background-image: url("img/p3.png");*/
 }
 .p-1{
@@ -104,25 +106,36 @@ body{
 }
 
 /* WEAPONS */
+#wp-0, #wp-1{
+  width: 100px;
+  height: 200px;
+  background-color: yellow;
+}
 
 .w-1{
 	background-image: url("img/weapon_1.png");
    background-repeat:no-repeat;
 }
-.w-2{
+.w-{
 	background-image: url("img/weapon_2.png");
    background-repeat:no-repeat;
 }
 
-.w-3{
+.w-{
 	background-image: url("img/weapon_3.png");
    background-repeat:no-repeat;
 }
-.w-4{
+.w-{
 	background-image: url("img/weapon_4.png");
    background-repeat:no-repeat;
 }
 
+#wp{
+  text-align: center;
+  width: 100px;
+  height: 400px;
+  background-color: yellow;
+}
 /*______________ ANIMATION _______ */
 .is-animated {
     animation-duration: .9s;
