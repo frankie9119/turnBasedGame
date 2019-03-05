@@ -112,12 +112,18 @@ body{
   padding-bottom: 10px;
   font-size: 20px;
 }
-#wp1-0, #wp1-1,#wp2-0, #wp2-1,#wp3-0, #wp3-1,#wp4-0, #wp4-1, #score-0, #score-1{
+#wp-0, #wp-1, #score-0, #score-1, #scores-0, #scores-1{
+  text-align: center;
+  padding-top: 10px;
   width: 50px;
   height: 50px;
   margin-left: 35%;
   border: 2px dashed black;
   background-color: #8f8f8f;
+}
+#wp-0, #wp-1{
+  background-image: url("img/weapon.png");
+  background-repeat: no-repeat;
 }
 
 .w-1{
@@ -144,6 +150,13 @@ body{
    background-repeat:no-repeat;
       position: relative;
    z-index: 2;
+}
+
+.att-def{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: pink;
 }
 
 

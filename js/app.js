@@ -24,7 +24,7 @@ function selectElementAndCheckClass(element, className) {
   for (var i = 0; i < arrOfClasses.length; i++) {
 
     if (arrOfClasses[i] === className) {
-
+console.log('classes')
       //alert('Weapon detected via class checker function')
      // $(drawWthree).removeClass("w-3")
       //$(weaponPlace).addClass("w-3")
@@ -90,7 +90,7 @@ $('#right-button').on('click', function() {
     //let w1 = 10;
 
     console.log(moveCounter);
-    let weaponPrint = $('#score-' + activePlayer);
+    let weaponPrint = $('#score-' + activePlayer)
 
     $pOne = $('.p-' + activePlayer)
     $pOneNext = $pOne.next();
@@ -152,7 +152,12 @@ $('#right-button').on('click', function() {
 
 
     if ($pOneNext.hasClass("p-1")) {
+
+        $('#d-pad').hide();
+        //window.open ('battle.html','_self',false)
         alert('FIRE !!!')
+
+
     } else if ($pOneNext.hasClass("ob")) {
         return false;
     } else {
@@ -181,7 +186,7 @@ $('#left-button').on('click', function() {
     let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
     let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
 
-    let weaponPrint = $('#score-' + activePlayer);
+    let weaponPrint = $('#score-' + activePlayer)
 
     $pOne = $('.p-' + activePlayer)
     $pOnePrev = $pOne.prev();
@@ -337,7 +342,7 @@ $('#down-button').on('click', function() {
     let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
     let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
 
-    let weaponPrint = $('#score-' + activePlayer);
+    let weaponPrint = $('#score-' + activePlayer)
 
     console.log(moveCounter);
 

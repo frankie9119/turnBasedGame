@@ -6,6 +6,7 @@
   /* Legacy iOS */
 }
 .controller {
+  display: inline-block;
   margin-left: 24%;
   font-family: "Prosto One";
   
