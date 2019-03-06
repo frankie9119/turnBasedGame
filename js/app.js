@@ -15,48 +15,6 @@ document.getElementById('score-0').textContent = '10';
 document.getElementById('score-1').textContent = '10';
 
 
-//_______________________________________________________BEGIN check for classes
-
-
-function selectElementAndCheckClass(element, className) {
-  let arrOfClasses = $(element).attr('class').split(" ");
-  //let weaponPlace = document.getElementById('wp');
-  for (var i = 0; i < arrOfClasses.length; i++) {
-
-    if (arrOfClasses[i] === className) {
-console.log('classes')
-      //alert('Weapon detected via class checker function')
-     // $(drawWthree).removeClass("w-3")
-      //$(weaponPlace).addClass("w-3")
-
-      /*
-          if ($pOneNext.hasClass('w-1')) {
-        $(drawWone).removeClass("w-1")
-        $(weaponPlace).addClass("w-1")
-        }
-    */
-    } 
-  }
-  
-}
-
-
-
-
-//______________________________________________________END check for classes
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //_______________________________________________________BEGIN Create grid
@@ -100,7 +58,8 @@ $('#right-button').on('click', function() {
 
    if ($pOneNext.hasClass('w-1')) {
         //alert('WEAPON !!!')
-       
+        //selectElementAndCheckClass(".wep-0", "wp-0", "w-1", "w-2")
+        checkW1();
         alert("This Weapon = 15 points destroy power");
         score = w1
         weaponPrint.html(score)
@@ -121,6 +80,7 @@ $('#right-button').on('click', function() {
 
     } else if ($pOneNext.hasClass('w-2')) {
         //alert('WEAPON !!!')
+        checkW2()
         alert("This Weapon = 20 points destroy power");
         score = w2
         weaponPrint.html(score)
@@ -130,7 +90,7 @@ $('#right-button').on('click', function() {
         $(weaponPlace2).addClass("w-2")
     } else if ($pOneNext.hasClass('w-3')) {
         //alert('WEAPON !!!')
-
+        checkW3();
         alert("This Weapon = 30 points destroy power");
         score = w3
         weaponPrint.html(score)
@@ -139,7 +99,7 @@ $('#right-button').on('click', function() {
         $(weaponPlace3).addClass("w-3")
     } else if ($pOneNext.hasClass('w-4')) {
         //alert('WEAPON !!!')
-
+        checkW4();
         alert("This Weapon = 40 points destroy power");
         score = w4
         weaponPrint.html(score)
@@ -151,14 +111,21 @@ $('#right-button').on('click', function() {
 
 
 
+
+
+
+
     if ($pOneNext.hasClass("p-1")) {
 
-        $('#d-pad').hide();
+        fight();
         //window.open ('battle.html','_self',false)
-        alert('FIRE !!!')
+        
+        
+        //$(".att-def").removeClass("hidden");
 
-
-    } else if ($pOneNext.hasClass("ob")) {
+    } else if ($pOneNext.hasClass("p-0")) {
+       fight();
+    }else if ($pOneNext.hasClass("ob")) {
         return false;
     } else {
         $pOne.removeClass('p-' + activePlayer);
@@ -237,7 +204,11 @@ if ($pOnePrev.hasClass('w-1')) {
 
     if ($pOnePrev.hasClass("ob")) {
         return false;
-    } else {
+    } else if ($pOnePrev.hasClass('p-1')){
+            fight()
+    } else if ($pOnePrev.hasClass('p-0')){
+            fight()
+    }else {
         $pOne.removeClass('p-' + activePlayer);
         $pOnePrev.addClass('p-' + activePlayer);
     }
@@ -315,6 +286,10 @@ $('#up-button').on('click', function() {
 
         $(drawWfour).removeClass("w-4")
         $(weaponPlace1).addClass("w-4")
+    }else if ($('#' + idUpMove).hasClass('p-1')) {
+        fight()
+    }else if ($('#' + idUpMove).hasClass('p-0')) {
+        fight()
     }
 
     $pOne.removeClass('p-' + activePlayer);
@@ -391,6 +366,10 @@ $('#down-button').on('click', function() {
 
         $(drawWfour).removeClass("w-4")
         $(weaponPlace4).addClass("w-4")
+    }else if ($('#' + idDownMove).hasClass('p-0')){
+            fight()
+    }else if ($('#' + idDownMove).hasClass('p-1')){
+            fight()
     }
 
 
@@ -403,7 +382,7 @@ $('#down-button').on('click', function() {
       
     
     //$('#' + idUpMove).removeClass('pOne');
-       
+      
 
  //_______________________________________________________________________BEGIN Get all classes
       let classList = $('#' + idDownMove).attr("class").split(' ');
@@ -443,3 +422,20 @@ $('#b-button').on('click', function() {
 })
 
 //__________________________________________________________________________END done button
+
+
+
+
+
+function fight (){
+
+        $('#d-pad').addClass("hidden");
+        $("#grid-box").removeClass("grid-box");
+        $(".hidden").css({"display": "inline-block"});
+        alert('LET S FIGHT')
+    }
+
+
+
+
+

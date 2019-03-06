@@ -72,14 +72,25 @@ body{
 	text-align: center;
 	margin-right: 100px;
 }
-#grid-box
+
+.hidden{
+  display: none ;
+}
+.battle{ 
+  background-image: url("img/ground2.jpg");
+  width: 420px;
+  height: 420px;
+  border: 20px solid #404040;
+}
+
+.grid-box
 {	
 	background-image: url("img/ground2.jpg");
 	width: 420px;
 	height: 420px;
 	border: 20px solid #404040;
 }
-#grid-box>div.square {
+.grid-box>div.square {
   font-size: 1rem;
   vertical-align: top;
   display: inline-block;
@@ -94,13 +105,14 @@ body{
 .p-0{
 	background-image: url("img/p0.png");
   background-repeat: no-repeat;
-  position: relative;
-  z-index: 2;
+
+  z-index: 3;
 	/*background-image: url("img/p3.png");*/
 }
 .p-1{
 	background-image: url("img/p1.png");
   background-repeat:no-repeat;
+  z-index: 3;
 }
 .move{
 	text-align: center;
@@ -112,7 +124,7 @@ body{
   padding-bottom: 10px;
   font-size: 20px;
 }
-#wp-0, #wp-1, #score-0, #score-1, #scores-0, #scores-1{
+.wep-0, .wep-1, #score-0, #score-1, #scores-0, #scores-1{
   text-align: center;
   padding-top: 10px;
   width: 50px;
@@ -121,16 +133,22 @@ body{
   border: 2px dashed black;
   background-color: #8f8f8f;
 }
-#wp-0, #wp-1{
+.wp-0{
   background-image: url("img/weapon.png");
   background-repeat: no-repeat;
+  z-index: 1 ;
+}
+.wp-1{
+  background-image: url("img/weapon.png");
+  background-repeat: no-repeat;
+  z-index: ;
 }
 
 .w-1{
 	background-image: url("img/weapon_1.png");
    background-repeat:no-repeat;
    position: relative;
-   z-index: 2;
+   z-index: ;
 }
 .w-2{
 	background-image: url("img/weapon_2.png");
@@ -153,7 +171,7 @@ body{
 }
 
 .att-def{
-  display: inline-block;
+  
   width: 100px;
   height: 100px;
   background-color: pink;
