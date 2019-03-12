@@ -174,3 +174,30 @@ $('#right-button').on('click', function() {
 
 
 });
+
+
+
+
+
+
+    if ($pOnePrev.hasClass("ob")) {
+        return false;
+    } else if ($pOnePrev.hasClass('p-1')){
+            fight()
+    } else if ($pOnePrev.hasClass('p-0')){
+            fight()
+    }else {
+        $pOne.removeClass('p-' + activePlayer);
+        $pOnePrev.addClass('p-' + activePlayer);
+    }
+
+
+
+
+
+
+
+
+
+
+

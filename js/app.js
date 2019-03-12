@@ -11,14 +11,17 @@ w4 = 40;
 
 
 let playerWeapon = {
-   currentWeapon:""
+   currentWeapon:"wp-0"
 }
+
+//let weaponPrint = $('#score-' + activePlayer)
+
 // add all w points
 
 document.getElementById('score-0').textContent = '10';
 document.getElementById('score-1').textContent = '10';
 
-
+$("#square" + 0).addClass("player")
 
 
 //_______________________________________________________BEGIN Create grid
@@ -35,122 +38,113 @@ for (var i = 0; i <= 99; i++) {
 
 //______________________________________________________END Create grid
 
-function getWeapon(ele){
+//___________________________________________________BEGIN CHECK ALL CLASSES FIRST LETTER 'W'
+
+function getWeapon(ele) {
 
   let classList = $(ele).attr("class").split(' ');
 
-  for(let i = 0; i < classList.length; i+=1){
+  for (let i = 0; i < classList.length; i += 1) {
 
-       if(classList[i][0] === "w"){
+    //___________________________________________________WT NEW
 
-        alert(classList[i])
-        $(ele).addClass(playerWeapon.currentWeapon);
-        $(ele).removeClass(classList[i]);
-        return classList[i]
+    if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
+
+      // THEN . . . . .
+
+      $(ele).addClass(playerWeapon.currentWeapon) // SET current weapon as class to current grid-box
+      alert(playerWeapon.currentWeapon);
+      $(".ww-" + activePlayer).removeClass(playerWeapon.currentWeapon);
+
+      playerWeapon.currentWeapon = classList[i]; // GET the originally set weapon class and SET it to playerOneCurrentWeapon
+
+      $(ele).removeClass(playerWeapon.currentWeapon) // REMOVE old weapon from grid-box
+
+      alert(playerWeapon.currentWeapon);
+
+      $(".ww-" + activePlayer).addClass(playerWeapon.currentWeapon);
+      //___________________________________________________WT NEW
+      return classList[i]
+    }
 
 
-        
-       //return classList[i]
-
-
-       /*
-        $(ele).addClass(playerOne.currentWeapon);
-        $(ele).removeClass(classList[i]);
-        return classList[i]
-           */
-           
-       }
   }
-    
+
 }
 
 
+//______________________________________________END CHECK ALL CLASSES FIRST LETTER 'W'
+//______________________________________________BEGIN WEAPONS POINTS
+
+function pointsWeapon(eles) {
+  let weaponPrint = $('#score-' + activePlayer)
+  let classCheck = $(eles).attr("class").split(' ');
+
+  for (let i = 0; i < classCheck.length; i += 1) {
+    //___________________________________________________WT NEW
+    if (classCheck[i] === "w-1") { 
+        alert("This Weapon = 15 points destroy power");
+        score = w1
+        weaponPrint.html(score)
+
+        //$(weaponPlace1).addClass("w-1")
+      
+      return classCheck[i]
+    } else if (classCheck[i] === "w-2"){
+        alert("This Weapon = 20 points destroy power");
+        score = w2
+        weaponPrint.html(score)
+
+        //$(weaponPlace2).addClass("w-2")
+        return classCheck[i]
+
+    }
+  }
+
+}
+//______________________________________________END WEAPONS POINTS
+
 //______________________________________________________BEGIN right movement
 
-//$("#square"  + moveCounter ).addClass("player")
-
 $('#right-button').on('click', function() {
+
     moveCounter += 1;
 
     $pOne = $('.p-' + activePlayer)
     $pOneNext = $pOne.next();
 
+    if ($pOneNext.hasClass("ob")) {
+        return false;
+    } else if ($pOneNext.hasClass('p-1')){
+            fight()
+    } else if ($pOneNext.hasClass('p-0')){
+            fight()
+    }else {
+        $pOne.removeClass('p-' + activePlayer);
+        $pOneNext.addClass('p-' + activePlayer);
+    }
 
-    $pOne.removeClass('p-' + activePlayer);
-    $pOneNext.addClass('p-' + activePlayer);
-       // $("#square" + moveCounter).removeClass("p-" + activePlayer)
-      //  $("#square"  + moveCounter ).addClass("p-" + activePlayer)
+    pointsWeapon(".p-" + activePlayer);
+    getWeapon(".p-" + activePlayer);
 
-     
-    let currentWeapon = getWeapon(".p-" + activePlayer);
-    //moveCounter non the right one
-    playerWeapon.currentWeapon = currentWeapon;
+    if (moveCounter >=3) {
+        moveCounter = 0;
+        console.log('more then 3 move')
+        $("#b-button").trigger("click");
+    }
     
-    $("#player-one-weapon").text( playerWeapon.currentWeapon);
-    //$(".wp-0").addClass( playerWeapon.currentWeapon);
 });
+
+
 //______________________________________________________END right movement
-
-
 
 //______________________________________________________BEGIN left movement
 
 $('#left-button').on('click', function() {
     moveCounter += 1;
 
-    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
-    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
-    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
-    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
-
-    let weaponPrint = $('#score-' + activePlayer)
-
     $pOne = $('.p-' + activePlayer)
     $pOnePrev = $pOne.prev();
-
-
-
-
-if ($pOnePrev.hasClass('w-1')) {
-        
-        alert("This Weapon = 15 points destroy power");
-        score = w1
-        weaponPrint.html(score)
-
-        $(drawWone).removeClass("w-1")
-        $(weaponPlace1).addClass("w-1")
-
-    } else if ($pOnePrev.hasClass('w-2')) {
-        
-        alert("This Weapon = 20 points destroy power");
-        score = w2
-        weaponPrint.html(score)
-
-        $(drawWtwo).removeClass("w-2")
-        $(weaponPlace2).addClass("w-2")
-
-    } else if ($pOnePrev.hasClass('w-3')) {
-        
-        alert("This Weapon = 30 points destroy power");
-        score = w3
-        weaponPrint.html(score)
-
-        $(drawWthree).removeClass("w-3")
-        $(weaponPlace3).addClass("w-3")
-
-    } else if ($pOnePrev.hasClass('w-4')) {
-        
-        alert("This Weapon = 40 points destroy power");
-        score = w4
-        weaponPrint.html(score)
-
-        $(drawWfour).removeClass("w-4")
-        $(weaponPlace4).addClass("w-4")
-    }
-
-
-
-
 
     if ($pOnePrev.hasClass("ob")) {
         return false;
@@ -163,6 +157,8 @@ if ($pOnePrev.hasClass('w-1')) {
         $pOnePrev.addClass('p-' + activePlayer);
     }
 
+    pointsWeapon(".p-" + activePlayer);
+    getWeapon(".p-" + activePlayer);
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -175,18 +171,10 @@ if ($pOnePrev.hasClass('w-1')) {
 //______________________________________________________END left movement
 
 
-
 //______________________________________________________BEGIN up movement
 
 $('#up-button').on('click', function() {
     moveCounter += 1;
-
-    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
-    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
-    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
-    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
-
-    let weaponPrint = $('#score-' + activePlayer);
 
     $pOne = $('.p-' + activePlayer)
     var id = $pOne.attr('id') // in which square is pActive
@@ -204,39 +192,7 @@ $('#up-button').on('click', function() {
       return false;
     }
 
-    if ($('#' + idUpMove).hasClass('w-1')) {  
-
-        alert("This Weapon = 15 points destroy power");
-        score = w1
-        weaponPrint.html(score)
-
-        $(drawWone).removeClass("w-1")
-        $(weaponPlace1).addClass("w-1")
-    } else if ($('#' + idUpMove).hasClass('w-2')) {  
-
-        alert("This Weapon = 20 points destroy power");
-        score = w2
-        weaponPrint.html(score)
-
-        $(drawWtwo).removeClass("w-2")
-        $(weaponPlace1).addClass("w-2")
-    }else if ($('#' + idUpMove).hasClass('w-3')) { 
-
-        alert("This Weapon = 30 points destroy power");
-        score = w3
-        weaponPrint.html(score)
-
-        $(drawWthree).removeClass("w-3")
-        $(weaponPlace1).addClass("w-3")
-    }else if ($('#' + idUpMove).hasClass('w-4')) {
-
-        alert("This Weapon = 40 points destroy power");
-        score = w4
-        weaponPrint.html(score)
-
-        $(drawWfour).removeClass("w-4")
-        $(weaponPlace1).addClass("w-4")
-    }else if ($('#' + idUpMove).hasClass('p-1')) {
+    if ($('#' + idUpMove).hasClass('p-1')) {
         fight()
     }else if ($('#' + idUpMove).hasClass('p-0')) {
         fight()
@@ -245,7 +201,10 @@ $('#up-button').on('click', function() {
     $pOne.removeClass('p-' + activePlayer);
     $('#' + idUpMove).addClass('p-' + activePlayer);
 
-        if (moveCounter >=3) {
+    pointsWeapon(".p-" + activePlayer);
+    getWeapon(".p-" + activePlayer);
+
+    if (moveCounter >=3) {
         moveCounter = 0;
         console.log('more then 3 move')
         $("#b-button").trigger("click");
@@ -262,16 +221,6 @@ $('#up-button').on('click', function() {
 $('#down-button').on('click', function() {
     moveCounter += 1;
 
-    let weaponPlace1 = document.getElementById('wp1-' + activePlayer);
-    let weaponPlace2 = document.getElementById('wp2-' + activePlayer);
-    let weaponPlace3 = document.getElementById('wp3-' + activePlayer);
-    let weaponPlace4 = document.getElementById('wp4-' + activePlayer);
-
-    let weaponPrint = $('#score-' + activePlayer)
-
-    console.log(moveCounter);
-
-
     $pOne = $('.p-' + activePlayer)
     var id = $pOne.attr('id');
     console.log(id)
@@ -279,52 +228,16 @@ $('#down-button').on('click', function() {
     var idNumber = +id.slice(6);
     var idMove = idNumber + 10;
     var idDownMove = 'square' + idMove;
+
      if($('#' + idDownMove).hasClass('ob')){
-        console.log(moveCounter)
       return false;
-        }
+    }
 
-    if($('#' + idDownMove).hasClass('w-1')){
-
-        alert("This Weapon = 15 points destroy power");
-        score = w1
-        weaponPrint.html(score)
-
-        $(drawWone).removeClass("w-1")
-        $(weaponPlace1).addClass("w-1")
-    } else if ($('#' + idDownMove).hasClass('w-2')){
-
-        alert("This Weapon = 20 points destroy power");
-        score = w2
-        weaponPrint.html(score)
-
-        $(drawWtwo).removeClass("w-2")
-        $(weaponPlace2).addClass("w-2")
-    }else if ($('#' + idDownMove).hasClass('w-3')){
-
-        alert("This Weapon = 30 points destroy power");
-        score = w3
-        weaponPrint.html(score)
-
-        $(drawWthree).removeClass("w-3")
-        $(weaponPlace3).addClass("w-3")
-    }else if ($('#' + idDownMove).hasClass('w-4')){
-
-        alert("This Weapon = 40 points destroy power");
-        score = w4
-        weaponPrint.html(score)
-
-        $(drawWfour).removeClass("w-4")
-        $(weaponPlace4).addClass("w-4")
-    }else if ($('#' + idDownMove).hasClass('p-0')){
+    if ($('#' + idDownMove).hasClass('p-0')){
             fight()
     }else if ($('#' + idDownMove).hasClass('p-1')){
             fight()
     }
-
-
-
-
 
      if(idMove <= 100){
     $pOne.removeClass('p-' + activePlayer);
@@ -340,11 +253,12 @@ $('#down-button').on('click', function() {
   //______________________________________________________________________END get all classes
      
 
-
-
     $('#' + idDownMove).addClass('p-' + activePlayer);
 
-        if (moveCounter >=3) {
+    pointsWeapon(".p-" + activePlayer);
+    getWeapon(".p-" + activePlayer);
+
+    if (moveCounter >=3) {
         moveCounter = 0;
         console.log('more then 3 move')
         $("#b-button").trigger("click");

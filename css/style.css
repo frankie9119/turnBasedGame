@@ -124,7 +124,7 @@ body{
   padding-bottom: 10px;
   font-size: 20px;
 }
-.wep-0, .wep-1, #score-0, #score-1, #scores-0, #scores-1{
+.wep-0, .wep-1, #score-0, #score-1, #scores-0, #scores-1, .ww-0, .ww-1{
   text-align: center;
   padding-top: 10px;
   width: 50px;
@@ -157,13 +157,13 @@ body{
    z-index: 2;
 }
 
-.w-3{
+.w-{
 	background-image: url("img/weapon_3.png");
    background-repeat:no-repeat;
       position: relative;
    z-index: 2;
 }
-.w-4{
+.w-{
 	background-image: url("img/weapon_4.png");
    background-repeat:no-repeat;
       position: relative;
