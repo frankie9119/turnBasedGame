@@ -76,6 +76,10 @@ body{
 .hidden{
   display: none ;
 }
+.hiddenDpad{
+  display: none ;
+}
+
 .battle{ 
   background-image: url("img/ground2.jpg");
   width: 420px;
@@ -86,6 +90,7 @@ body{
 .grid-box
 {	
 	background-image: url("img/ground2.jpg");
+  z-index: 0;
 	width: 420px;
 	height: 420px;
 	border: 20px solid #404040;
@@ -105,14 +110,14 @@ body{
 .p-0{
 	background-image: url("img/p0.png");
   background-repeat: no-repeat;
-
-  z-index: 3;
+  position: relative;
+  z-index: 2;
 	/*background-image: url("img/p3.png");*/
 }
 .p-1{
 	background-image: url("img/p1.png");
   background-repeat:no-repeat;
-  z-index: 3;
+  z-index: 1;
 }
 .move{
 	text-align: center;
@@ -136,6 +141,7 @@ body{
 .wp-0{
   background-image: url("img/weapon.png");
   background-repeat: no-repeat;
+  position: relative; ;
   z-index: 1 ;
 }
 .wp-1{
@@ -147,14 +153,14 @@ body{
 .w-1{
 	background-image: url("img/weapon_1.png");
    background-repeat:no-repeat;
-   position: relative;
-   z-index: ;
+   position:relative; ;
+   z-index: 1;
 }
-.w-2{
+.w-{
 	background-image: url("img/weapon_2.png");
    background-repeat:no-repeat;
       position: relative;
-   z-index: 2;
+   z-index: 0;
 }
 
 .w-{

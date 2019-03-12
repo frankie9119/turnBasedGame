@@ -269,11 +269,6 @@ $('#down-button').on('click', function() {
 
 //______________________________________________________END down movement
 
-
-
-
-
-
 //____________________________________________________________________________BEGIN done button
 
 
@@ -289,15 +284,25 @@ $('#b-button').on('click', function() {
 
 
 
-
-
 function fight (){
 
-        $('#d-pad').addClass("hidden");
+        $('#d-pad').addClass("hiddenDpad");
+        $('#b-box').addClass("hiddenDpad");
         $("#grid-box").removeClass("grid-box");
         $(".hidden").css({"display": "inline-block"});
         alert('LET S FIGHT')
     }
+
+
+
+
+$('.attack_p1').on('click', function() {
+
+    $('#scores-0') = 10;
+
+})
+
+
 
 
 
