@@ -67,7 +67,6 @@ function getWeapon(ele) {
       return classList[i]
     }
 
-
   }
 
 }
@@ -94,8 +93,21 @@ function pointsWeapon(eles) {
         alert("This Weapon = 20 points destroy power");
         score = w2
         weaponPrint.html(score)
-
         //$(weaponPlace2).addClass("w-2")
+        return classCheck[i]
+
+    }else if (classCheck[i] === "w-3"){
+        alert("This Weapon = 30 points destroy power");
+        score = w3
+        weaponPrint.html(score)
+        
+        return classCheck[i]
+
+    }else if (classCheck[i] === "w-4"){
+        alert("This Weapon = 40 points destroy power");
+        score = w4
+        weaponPrint.html(score)
+       
         return classCheck[i]
 
     }

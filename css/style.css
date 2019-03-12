@@ -156,20 +156,20 @@ body{
    position:relative; ;
    z-index: 1;
 }
-.w-{
+.w-2{
 	background-image: url("img/weapon_2.png");
    background-repeat:no-repeat;
       position: relative;
    z-index: 0;
 }
 
-.w-{
+.w-3{
 	background-image: url("img/weapon_3.png");
    background-repeat:no-repeat;
       position: relative;
    z-index: 2;
 }
-.w-{
+.w-4{
 	background-image: url("img/weapon_4.png");
    background-repeat:no-repeat;
       position: relative;
