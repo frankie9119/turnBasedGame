@@ -14,7 +14,7 @@ let playerWeapon = {
    currentWeapon:"wp-0"
 }
 let playerWeapon1 = {
-   currentWeapon:"wp-0"
+   currentWeapon:"wp-1"
 }
 //let weaponPrint = $('#score-' + activePlayer)
 
@@ -72,37 +72,6 @@ function getWeapon(ele) {
   }
 
 }
-function getWeapon1(ele) {
-
-  let classList = $(ele).attr("class").split(' ');
-
-  for (let i = 0; i < classList.length; i += 1) {
-
-    //___________________________________________________WT NEW
-
-    if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
-
-      // THEN . . . . .
-
-      $(ele).addClass(playerWeapon1.currentWeapon) // SET current weapon as class to current grid-box
-      alert(playerWeapon1.currentWeapon);
-      $(".ww-" + activePlayer).removeClass(playerWeapon1.currentWeapon);
-
-      playerWeapon1.currentWeapon = classList[i]; // GET the originally set weapon class and SET it to playerOneCurrentWeapon
-
-      $(ele).removeClass(playerWeapon1.currentWeapon) // REMOVE old weapon from grid-box
-
-      alert(playerWeapon1.currentWeapon);
-
-      $(".ww-" + activePlayer).addClass(playerWeapon1.currentWeapon);
-      //___________________________________________________WT NEW
-      return classList[i]
-    }
-
-  }
-
-}
-
 
 //______________________________________________END CHECK ALL CLASSES FIRST LETTER 'W'
 //______________________________________________BEGIN WEAPONS POINTS
@@ -168,12 +137,12 @@ $('#right-button').on('click', function() {
         $pOneNext.addClass('p-' + activePlayer);
     }
 
-    /*if (('.p-' + activePlayer) === 'p-0'){
+        pointsWeapon(".p-" + activePlayer);
         getWeapon(".p-" + activePlayer);
-    }*/
-    pointsWeapon(".p-" + activePlayer);
-    getWeapon(".p-0");
-    getWeapon1(".p-1");
+
+    
+    
+    //getWeapon(".p-" + activePlayer);
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -206,8 +175,7 @@ $('#left-button').on('click', function() {
     }
 
     pointsWeapon(".p-" + activePlayer);
-    getWeapon(".p-0");
-    getWeapon1(".p-1");
+    getWeapon(".p-" + activePlayer);
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -251,8 +219,7 @@ $('#up-button').on('click', function() {
     $('#' + idUpMove).addClass('p-' + activePlayer);
 
     pointsWeapon(".p-" + activePlayer);
-    getWeapon(".p-0");
-    getWeapon1(".p-1");
+    getWeapon(".p-" + activePlayer);
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -306,8 +273,7 @@ $('#down-button').on('click', function() {
     $('#' + idDownMove).addClass('p-' + activePlayer);
 
     pointsWeapon(".p-" + activePlayer);
-    getWeapon(".p-0");
-    getWeapon1(".p-1");
+    getWeapon(".p-" + activePlayer);
 
     if (moveCounter >=3) {
         moveCounter = 0;

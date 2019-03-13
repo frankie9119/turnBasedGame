@@ -15,12 +15,12 @@ let playerWeapon = {
    currentWeapon:"wp-0"
 }
 
-//let scoresP0 = {
-//   currentScores:"100"
-//}
-//let scoresP1 = {
-//   currentScores:"100"
-//}
+let scoresP0 = {
+   currentScores:"100"
+}
+let scoresP1 = {
+   currentScores:"100"
+}
 
 //let weaponPrint = $('#score-' + activePlayer)
 
@@ -82,7 +82,7 @@ function getWeapon(ele) {
 //______________________________________________END CHECK ALL CLASSES FIRST LETTER 'W'
 //______________________________________________BEGIN WEAPONS POINTS
 
-/*function pointsWeapon(eles) {
+function pointsWeapon(eles) {
   let weaponPrint = $('#score-' + activePlayer)
   let classCheck = $(eles).attr("class").split(' ');
 
@@ -160,7 +160,7 @@ function getWeapon(ele) {
     }
   }
 
-}*/
+}
 //______________________________________________END WEAPONS POINTS
 
 //______________________________________________________BEGIN right movement
