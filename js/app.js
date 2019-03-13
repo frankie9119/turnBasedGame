@@ -49,9 +49,11 @@ function getWeapon(ele) {
   for (let i = 0; i < classList.length; i += 1) {
 
     //___________________________________________________WT NEW
-
+if($('.p-' + activePlayer).hasClass('p-0')){
     if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
-
+        
+            alert('p0 weapon')
+        
       // THEN . . . . .
 
       $(ele).addClass(playerWeapon.currentWeapon) // SET current weapon as class to current grid-box
@@ -71,6 +73,7 @@ function getWeapon(ele) {
 
   }
 
+}
 }
 
 //______________________________________________END CHECK ALL CLASSES FIRST LETTER 'W'
