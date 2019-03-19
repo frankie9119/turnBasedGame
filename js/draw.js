@@ -6,8 +6,8 @@ while (obstacles.length < 10) { // Stop only if 10 squares are added
 
   // Only add the square if it doesn't exist already
   if (obstacles.indexOf(randomIndex) === -1) {
+    
     obstacles.push(randomIndex);
-
     var drawObstacle = document.getElementById('square' + randomIndex);
     $(drawObstacle).addClass("ob")
     //obstacles.appendChild(square + randomIndex);

@@ -2,9 +2,15 @@ body{
 	background-color: #b4cdd4;
   font-family: 'Special Elite', cursive;
 }
+
+.name-1, .name-2{
+  width: 120px;
+  text-align: center;
+  margin-left: 35px;
+}
 .active{
   background-color: red;
-  border: 5px solid red;
+  outline: 5px solid red;
 }
 .container{
 	display: flex;
@@ -31,7 +37,7 @@ body{
   top: -7px;
 }
 .player-container.player-0 {
-  background: #fdc9c5;
+  background-color: #fdc9c5;
   border-radius: 3px;
   border-top-left-radius: 75px;
   border-bottom-left-radius: 75px;
@@ -44,7 +50,7 @@ body{
   border-bottom-left-radius: 3px;
 }
 .player-container.player-1 {
-  background: #fdc9c5;
+  background: #ede586;
   border-radius: 3px;
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;
@@ -122,6 +128,9 @@ body{
 .move{
 	text-align: center;
 }
+#moves{
+  margin-top: 100px;
+}
 
 /* WEAPONS */
 .w0-title, .w1-title, #sTitle-0, #sTitle-1{
@@ -129,7 +138,7 @@ body{
   padding-bottom: 10px;
   font-size: 20px;
 }
-.wep-0, .wep-1, #score-0, #score-1, #scores-0, #scores-1, .ww-0, .ww-1{
+.wep-0, .wep-1, #score-0, #score-1, #scores-0, #scores-1, .ww-0, .ww-1, .moves{
   text-align: center;
   padding-top: 10px;
   width: 50px;

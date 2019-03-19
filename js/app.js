@@ -49,11 +49,11 @@ function getWeapon(ele) {
   for (let i = 0; i < classList.length; i += 1) {
 
     //___________________________________________________WT NEW
-if($('.p-' + activePlayer).hasClass('p-0')){
+//if($('.p-' + activePlayer).hasClass('p-0')){
     if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
         
-            alert('p0 weapon')
-        
+        //alert('p0 weapon')
+        console.log(activePlayer)
       // THEN . . . . .
 
       $(ele).addClass(playerWeapon.currentWeapon) // SET current weapon as class to current grid-box
@@ -74,7 +74,7 @@ if($('.p-' + activePlayer).hasClass('p-0')){
   }
 
 }
-}
+
 
 //______________________________________________END CHECK ALL CLASSES FIRST LETTER 'W'
 //______________________________________________BEGIN WEAPONS POINTS
@@ -124,7 +124,7 @@ function pointsWeapon(eles) {
 
 $('#right-button').on('click', function() {
 
-    moveCounter += 1;
+    
 
     $pOne = $('.p-' + activePlayer)
     $pOneNext = $pOne.next();
@@ -137,12 +137,14 @@ $('#right-button').on('click', function() {
             fight()
     }else {
         $pOne.removeClass('p-' + activePlayer);
+        moveCounter += 1;
         $pOneNext.addClass('p-' + activePlayer);
     }
 
         pointsWeapon(".p-" + activePlayer);
         getWeapon(".p-" + activePlayer);
 
+        document.getElementById('moves').textContent = moveCounter;
     
     
     //getWeapon(".p-" + activePlayer);
@@ -161,7 +163,7 @@ $('#right-button').on('click', function() {
 //______________________________________________________BEGIN left movement
 
 $('#left-button').on('click', function() {
-    moveCounter += 1;
+    
 
     $pOne = $('.p-' + activePlayer)
     $pOnePrev = $pOne.prev();
@@ -174,11 +176,13 @@ $('#left-button').on('click', function() {
             fight()
     }else {
         $pOne.removeClass('p-' + activePlayer);
+        moveCounter += 1;
         $pOnePrev.addClass('p-' + activePlayer);
     }
 
     pointsWeapon(".p-" + activePlayer);
     getWeapon(".p-" + activePlayer);
+document.getElementById('moves').textContent = moveCounter;
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -194,7 +198,7 @@ $('#left-button').on('click', function() {
 //______________________________________________________BEGIN up movement
 
 $('#up-button').on('click', function() {
-    moveCounter += 1;
+    
 
     $pOne = $('.p-' + activePlayer)
     var id = $pOne.attr('id') // in which square is pActive
@@ -219,10 +223,12 @@ $('#up-button').on('click', function() {
     }
 
     $pOne.removeClass('p-' + activePlayer);
+    moveCounter += 1;
     $('#' + idUpMove).addClass('p-' + activePlayer);
 
     pointsWeapon(".p-" + activePlayer);
     getWeapon(".p-" + activePlayer);
+    document.getElementById('moves').textContent = moveCounter;
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -239,7 +245,7 @@ $('#up-button').on('click', function() {
 //______________________________________________________BEGIN down movement
 
 $('#down-button').on('click', function() {
-    moveCounter += 1;
+    
 
     $pOne = $('.p-' + activePlayer)
     var id = $pOne.attr('id');
@@ -250,7 +256,9 @@ $('#down-button').on('click', function() {
     var idDownMove = 'square' + idMove;
 
      if($('#' + idDownMove).hasClass('ob')){
+        
       return false;
+
     }
 
     if ($('#' + idDownMove).hasClass('p-0')){
@@ -262,7 +270,7 @@ $('#down-button').on('click', function() {
      if(idMove <= 100){
     $pOne.removeClass('p-' + activePlayer);
     }
-      
+      moveCounter += 1;
     
     //$('#' + idUpMove).removeClass('pOne');
       
@@ -277,6 +285,7 @@ $('#down-button').on('click', function() {
 
     pointsWeapon(".p-" + activePlayer);
     getWeapon(".p-" + activePlayer);
+    document.getElementById('moves').textContent = moveCounter;
 
     if (moveCounter >=3) {
         moveCounter = 0;
@@ -296,8 +305,8 @@ $('#b-button').on('click', function() {
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     moveCounter = 0;                                                      // set move to 0
     
-    document.querySelector('.player-0').classList.toggle('active');
-    document.querySelector('.player-1').classList.toggle('active');
+    document.querySelector('.name-1').classList.toggle('active');
+    document.querySelector('.name-2').classList.toggle('active');
 })
 
 //__________________________________________________________________________END done button
@@ -323,7 +332,6 @@ $('.attack_p1').on('click', function() {
         document.getElementById('scores-0').textContent = score + 50;
 
 })
-
 
 
 
