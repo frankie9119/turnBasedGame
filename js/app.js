@@ -49,7 +49,7 @@ function getWeapon(ele) {
   for (let i = 0; i < classList.length; i += 1) {
 
     //___________________________________________________WT NEW
-    //if($('.p-' + activePlayer).hasClass('p-0')){
+
     if (activePlayer === 0) {
 
       if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
@@ -157,6 +157,9 @@ $('#right-button').on('click', function() {
 
   $pOne = $('.p-' + activePlayer)
   $pOneNext = $pOne.next();
+    if ($pOneNext > 98) {
+    return false;
+  }
 
   if ($pOneNext.hasClass("ob")) {
     return false;
@@ -235,7 +238,7 @@ $('#up-button').on('click', function() {
   var idNumber = +id.slice(6);
   var idMove = idNumber - 10
   if (idMove < 0) {
-    idMove += 10;
+    return false;
   }
   var idUpMove = 'square' + idMove;
 
@@ -278,16 +281,18 @@ $('#down-button').on('click', function() {
 
   $pOne = $('.p-' + activePlayer)
   var id = $pOne.attr('id');
-  console.log(id)
+  //console.log(id)
 
   var idNumber = +id.slice(6);
   var idMove = idNumber + 10;
+  if (idMove > 98) {
+    return false;
+  }
   var idDownMove = 'square' + idMove;
 
   if ($('#' + idDownMove).hasClass('ob')) {
 
     return false;
-
   }
 
   if ($('#' + idDownMove).hasClass('p-0')) {
@@ -296,17 +301,17 @@ $('#down-button').on('click', function() {
     fight()
   }
 
-  if (idMove <= 100) {
+  //if (idMove <= 100) {
     $pOne.removeClass('p-' + activePlayer);
-  }
+  //}
   moveCounter += 1;
 
   //$('#' + idUpMove).removeClass('pOne');
 
 
   //_______________________________________________________________________BEGIN Get all classes
-  let classList = $('#' + idDownMove).attr("class").split(' ');
-  console.log(classList)
+  //let classList = $('#' + idDownMove).attr("class").split(' ');
+  //console.log(classList)
   //______________________________________________________________________END get all classes
 
 

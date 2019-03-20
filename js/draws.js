@@ -1,49 +1,56 @@
-  /*var grid = document.getElementById("grid-box");
 
-  for (var i = 0; i <= 1; i++) {
-    var square = document.createElement("div");
-    square.className = 'square';
-    square.id = 'square' + i;
-    grid.appendChild(square);
+$('#up-button').on('click', function() {
+
+
+  $pOne = $('.p-' + activePlayer)
+  var id = $pOne.attr('id') // in which square is pActive
+
+  var idNumber = +id.slice(6);
+  var idMove = idNumber - 10
+  if (idMove < 0) {
+    return false;
   }
-*/
+  var idUpMove = 'square' + idMove;
 
-  var draw = [];
+  console.log('going up test')
 
-  while (draw.length < 10) { // Stop only if 10 squares are added
-  var randomIndex = parseInt(99 * Math.random()); // Generate a random number between 0 and 99
-
-  // Only add the square if it doesn't exist already
-  if (draw.indexOf(randomIndex) === -1) {
-    draw.push(randomIndex);
-
-    var drawObstacle = document.getElementById('square' + randomIndex);
-    $(drawObstacle).addClass("ob")
-    //obstacles.appendChild(square + randomIndex);
+  if ($('#' + idUpMove).hasClass('ob')) {
+    return false;
   }
-}
 
-  while (draw.length < 11) {
-    var randomIndex = parseInt(99 * Math.random());
+  if ($('#' + idUpMove).hasClass('p-1')) {
+    fight()
+  } else if ($('#' + idUpMove).hasClass('p-0')) {
+    fight()
+  }
 
+  $pOne.removeClass('p-' + activePlayer);
+  moveCounter += 1;
+  $('#' + idUpMove).addClass('p-' + activePlayer);
 
-    if (draw.indexOf(randomIndex) === -1) {
-      draw.push(randomIndex);
+  pointsWeapon(".p-" + activePlayer);
+  getWeapon(".p-" + activePlayer);
+  document.getElementById('moves').textContent = moveCounter;
 
-
-      var drawWtwo = document.getElementById('square' + randomIndex);
-      $(drawWtwo).addClass("w2")
-
-    }
-  };
-
-  while (draw.length < 12) {
-    var randomIndex = parseInt(99 * Math.random());
-
-
-    if (draw.indexOf(randomIndex) === -1) {
-      draw.push(randomIndex);
+  if (moveCounter >= 3) {
+    moveCounter = 0;
+    console.log('more then 3 move')
+    $("#b-button").trigger("click");
+  }
 
 
-      var draw3 = document.getElementById('square' + randomIndex);
-      $(draw3).addClass("w3")
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
