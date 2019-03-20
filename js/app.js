@@ -38,6 +38,7 @@ for (var i = 0; i <= 99; i++) {
     grid.appendChild(square);
 }
 
+  
 //______________________________________________________END Create grid
 
 //___________________________________________________BEGIN CHECK ALL CLASSES FIRST LETTER 'W'

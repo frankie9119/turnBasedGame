@@ -113,18 +113,7 @@ body{
 .ob{
 	background-image: url("img/wood.png");
 }
-.p-0{
-	background-image: url("img/p0.png");
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 2;
-	/*background-image: url("img/p3.png");*/
-}
-.p-1{
-	background-image: url("img/p1.png");
-  background-repeat:no-repeat;
-  z-index: 1;
-}
+
 .move{
 	text-align: center;
 }
@@ -163,7 +152,7 @@ body{
 	background-image: url("img/weapon_1.png");
    background-repeat:no-repeat;
    position:relative; ;
-   z-index: 1;
+   z-index: 0;
 }
 .w-2{
 	background-image: url("img/weapon_2.png");
@@ -176,15 +165,25 @@ body{
 	background-image: url("img/weapon_3.png");
    background-repeat:no-repeat;
       position: relative;
-   z-index: 2;
+   z-index: 0;
 }
 .w-4{
 	background-image: url("img/weapon_4.png");
    background-repeat:no-repeat;
       position: relative;
-   z-index: 2;
+   z-index: 0;
 }
-
+.p-0{
+  background-image: url("img/p0.png");
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+}
+.p-1{
+  background-image: url("img/p1.png");
+  background-repeat:no-repeat;
+  z-index: 2;
+}
 .att-def{
   
   width: 100px;
