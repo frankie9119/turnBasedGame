@@ -390,6 +390,8 @@ $('#b-button').on('click', function() {
 
   document.querySelector('.name-1').classList.toggle('active');
   document.querySelector('.name-2').classList.toggle('active');
+
+
 })
 
 //__________________________________________________________________________END done button
@@ -405,6 +407,7 @@ function fight() {
     "display": "inline-block"
   });
   alert('LET S FIGHT')
+
 }
 
 
@@ -425,7 +428,6 @@ $('.attack_p1').on('click', function() {
     score1 -= damage
     newScore1.html(score1)
   }
-
 
   //score1 -= damage
   //newScore1.html(score1)

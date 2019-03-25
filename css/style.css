@@ -12,6 +12,7 @@ body{
   background-color: red;
   outline: 5px solid red;
 }
+
 .container{
 	display: flex;
 	margin: auto;
@@ -80,7 +81,10 @@ body{
 }
 
 .hidden{
-  display: none ;
+  display: none;
+}
+.fhidden{
+  display: none;
 }
 .hiddenDpad{
   display: none ;
@@ -214,6 +218,12 @@ body{
   background-color: orange;
 }
 
+.fight_p0{
+  background-color: #fdc9c5;
+}
 
+.fight_p1{
+  background-color: #ede586;
+}
 
 
