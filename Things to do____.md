@@ -7,9 +7,7 @@ To do this:
 Start with a data structure for each player that has all data specifc to the player.
 
 
-8. Last game-square, if a player goes there and click right it disappears.
 
-9. First game-square, if a player goes there and click left it disappears.
 
 
 
@@ -29,5 +27,11 @@ WHAT IS DONE?
 7. ! DONE ! First column, bottom game-square, if a player is there and click down it disappears.
 
 4. ! I THINK IT IS DONE, THE PROBLEM WAS WHEN CREATING GAME WORLD ! I found a scenerio where players fight and are not overlapping (You might want to see if you can recreate the bug). Generally you want to play the game and take note of any odd behavior (bugs) and list them to fix.
+
+10. ! DONE ! When player is on suqre 88 and click donw to go to 98 doesn't do anything.
+
+8. ! DONE ! Last game-square, if a player goes there and click right it disappears.
+
+9. ! DONE ! First game-square, if a player goes there and click left it disappears.
 
 

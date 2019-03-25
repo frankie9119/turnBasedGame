@@ -1,28 +1,35 @@
-let moveCounter, activePlayer, score, w1, w2, w3, w4;
+let moveCounter, activePlayer, damage, damage1, score, score1, w1, w2, w3, w4, newScore0, newScore1, defend_0, defend_1, playerWeapon, playerWeapon1;
 
 moveCounter = 0;
 activePlayer = 0;
-score = 10;
+damage = 10;
+damage1 = 10;
+score = 100;
+score1 = 100;
 w1 = 15;
 w2 = 20;
 w3 = 30;
 w4 = 40;
+newScore0 = $('#scores-0');
+newScore1 = $('#scores-1');
+defend_0 = [''];
+defend_1 = [''];
 
-
-let playerWeapon = {
+playerWeapon = {
   currentWeapon: "wp-0"
 }
-let playerWeapon1 = {
+
+playerWeapon1 = {
   currentWeapon: "wp-1"
 }
 //let weaponPrint = $('#score-' + activePlayer)
 
 // add all w points
 
-document.getElementById('score-0').textContent = '10';
-document.getElementById('score-1').textContent = '10';
+document.getElementById('damage-0').textContent = '10';
+document.getElementById('damage-1').textContent = '10';
 
-$("#square" + 0).addClass("player")
+//$("#square" + 0).addClass("player")
 
 
 //_______________________________________________________BEGIN Create grid
@@ -109,38 +116,60 @@ function getWeapon(ele) {
 //______________________________________________BEGIN WEAPONS POINTS
 
 function pointsWeapon(eles) {
-  let weaponPrint = $('#score-' + activePlayer)
+  let weaponPrint = $('#damage-' + activePlayer)
   let classCheck = $(eles).attr("class").split(' ');
 
   for (let i = 0; i < classCheck.length; i += 1) {
     //___________________________________________________WT NEW
     if (classCheck[i] === "w-1") {
+
       alert("This Weapon = 15 points destroy power");
-      score = w1
-      weaponPrint.html(score)
-
-      //$(weaponPlace1).addClass("w-1")
-
+      if (activePlayer === 0) {
+              damage = w1
+      weaponPrint.html(damage)
+    }else{
+      damage1 = w1
+      weaponPrint.html(damage1)
+    }
       return classCheck[i]
     } else if (classCheck[i] === "w-2") {
+
       alert("This Weapon = 20 points destroy power");
-      score = w2
-      weaponPrint.html(score)
+      if (activePlayer === 0) {
+          damage = w2
+         weaponPrint.html(damage)
+    }else{
+          damage1 = w2
+         weaponPrint.html(damage1)
+
+    }
+
       //$(weaponPlace2).addClass("w-2")
       return classCheck[i]
 
     } else if (classCheck[i] === "w-3") {
       alert("This Weapon = 30 points destroy power");
-      score = w3
-      weaponPrint.html(score)
+
+      if (activePlayer === 0) {
+        damage = w3
+        weaponPrint.html(damage)        
+      }else{
+      damage1 = w3
+      weaponPrint.html(damage1)
+    }
 
       return classCheck[i]
 
     } else if (classCheck[i] === "w-4") {
       alert("This Weapon = 40 points destroy power");
-      score = w4
-      weaponPrint.html(score)
 
+      if (activePlayer === 0) {
+      damage = w4
+      weaponPrint.html(damage)        
+    }else{
+      damage1 = w4
+      weaponPrint.html(damage1)
+    }
       return classCheck[i]
 
     }
@@ -153,13 +182,23 @@ function pointsWeapon(eles) {
 
 $('#right-button').on('click', function() {
 
-
-
   $pOne = $('.p-' + activePlayer)
+
+  let id = $pOne.attr('id')
+  let x = +id.slice(6)
+    console.log(x)
+
+    if (x > 98){
+      return false;
+    }
+
+
+
+
   $pOneNext = $pOne.next();
-    if ($pOneNext > 98) {
-    return false;
-  }
+//    if ($pOneNext > 98) {
+  //  return false;
+  //}
 
   if ($pOneNext.hasClass("ob")) {
     return false;
@@ -183,7 +222,7 @@ $('#right-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 move')
+    console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -198,6 +237,15 @@ $('#left-button').on('click', function() {
 
 
   $pOne = $('.p-' + activePlayer)
+
+  let id = $pOne.attr('id')
+  let x = +id.slice(6)
+    console.log(x)
+
+    if (x < 1){
+      return false;
+    }
+
   $pOnePrev = $pOne.prev();
 
   if ($pOnePrev.hasClass("ob")) {
@@ -218,7 +266,7 @@ $('#left-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 move')
+    console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -237,6 +285,7 @@ $('#up-button').on('click', function() {
 
   var idNumber = +id.slice(6);
   var idMove = idNumber - 10
+  console.log(idNumber)
   if (idMove < 0) {
     return false;
   }
@@ -264,7 +313,7 @@ $('#up-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 move')
+    console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -285,7 +334,7 @@ $('#down-button').on('click', function() {
 
   var idNumber = +id.slice(6);
   var idMove = idNumber + 10;
-  if (idMove > 98) {
+  if (idMove > 99) {
     return false;
   }
   var idDownMove = 'square' + idMove;
@@ -302,7 +351,7 @@ $('#down-button').on('click', function() {
   }
 
   //if (idMove <= 100) {
-    $pOne.removeClass('p-' + activePlayer);
+  $pOne.removeClass('p-' + activePlayer);
   //}
   moveCounter += 1;
 
@@ -323,7 +372,7 @@ $('#down-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 move')
+    console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -345,7 +394,7 @@ $('#b-button').on('click', function() {
 
 //__________________________________________________________________________END done button
 
-
+//_________________________________________________________________________BEGUIN fight
 
 function fight() {
 
@@ -361,10 +410,87 @@ function fight() {
 
 
 
-
+//let newScore0 = $('#scores-0');
+//let newScore1 = $('#scores-1');
+//________________________________________________ATTACK P 1
 $('.attack_p1').on('click', function() {
 
-  alert('here new score')
-  document.getElementById('scores-0').textContent = score + 50;
+  if (defend_1 > 1) {
+    //alert('good...!')
+    score1 -= defend_1
+    newScore1.html(score1)
+    defend_1 = 0
+    alert(defend_1)
+  } else {
+    score1 -= damage
+    newScore1.html(score1)
+  }
+
+
+  //score1 -= damage
+  //newScore1.html(score1)
+
+  //alert('here new score')
+  //alert(damage/2)
+  //document.getElementById('scores-0').textContent = score + 50;
 
 })
+
+// ____________________________________________________DEFEND P1
+
+$('.defend_p1').on('click', function(){
+
+  defend_0 = (damage1 / 2)
+  //newScore1.html(score1)
+  alert(defend_0)
+
+
+  //score1 -= (damage/2)
+  //newScore1.html(score1)
+
+})
+
+// ________________________________________________ATTACK P 2
+
+$('.attack_p2').on('click', function() {
+
+  if (defend_0 > 1) {
+    //alert('good...!')
+    score -= defend_0
+    newScore0.html(score)
+    defend_0 = 0
+    alert(defend_0)
+  } else {
+    score -= damage1
+    newScore0.html(score)
+  }
+
+
+  //alert('here new score')
+  //score -= damage1
+  //newScore0.html(score)
+  //alert(score)
+
+})
+
+// __________________________________________DEFEND P2
+
+$('.defend_p2').on('click', function(){
+
+  defend_1 = (damage / 2)
+  alert(defend_1)
+
+  //score -= (damage1/2)
+  //alert(score)
+
+  //newScore0.html(score)
+
+})
+
+// if defend next time other player attack damage/2 
+
+
+
+
+
+

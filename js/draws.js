@@ -1,56 +1,83 @@
+let moveCounter, activePlayer, damage, damage1, score, score1, w1, w2, w3, w4;
 
-$('#up-button').on('click', function() {
+moveCounter = 0;
+activePlayer = 0;
+damage = 20;
+damage1 = 10;
+score = 100;
+score1 = 100;
+w1 = 15;
+w2 = 20;
+w3 = 30;
+w4 = 40;
+
+let defend_0 = [''];
+let defend_1 = [''];
 
 
-  $pOne = $('.p-' + activePlayer)
-  var id = $pOne.attr('id') // in which square is pActive
+document.getElementById('damage-0').textContent = '20';
+document.getElementById('damage-1').textContent = '10';
 
-  var idNumber = +id.slice(6);
-  var idMove = idNumber - 10
-  if (idMove < 0) {
-    return false;
+
+
+
+let newScore0 = $('#scores-0');
+let newScore1 = $('#scores-1');
+
+
+//________________________________________________ATTACK P 1
+$('.attack_p1').on('click', function() {
+
+  if (defend_1 > 1) {
+    //alert('good...!')
+    score1 -= defend_1
+    newScore1.html(score1)
+    defend_1 = 0
+    alert(defend_1)
+  } else {
+    score1 -= damage
+    newScore1.html(score1)
   }
-  var idUpMove = 'square' + idMove;
 
-  console.log('going up test')
 
-  if ($('#' + idUpMove).hasClass('ob')) {
-    return false;
+})
+
+// ____________________________________________________DEFEND P1
+
+$('.defend_p1').on('click', function() {
+
+  defend_0 = (damage1 / 2)
+  //newScore1.html(score1)
+  alert(defend_0)
+
+})
+
+
+$('.attack_p2').on('click', function() {
+
+  //alert('here new score')
+
+  //score -= damage1
+  //newScore0.html(score)
+  //alert(score)
+
+  if (defend_0 > 1) {
+    //alert('good...!')
+    score -= defend_0
+    newScore0.html(score)
+    defend_0 = 0
+    alert(defend_0)
+  } else {
+    score -= damage1
+    newScore0.html(score)
   }
 
-  if ($('#' + idUpMove).hasClass('p-1')) {
-    fight()
-  } else if ($('#' + idUpMove).hasClass('p-0')) {
-    fight()
-  }
-
-  $pOne.removeClass('p-' + activePlayer);
-  moveCounter += 1;
-  $('#' + idUpMove).addClass('p-' + activePlayer);
-
-  pointsWeapon(".p-" + activePlayer);
-  getWeapon(".p-" + activePlayer);
-  document.getElementById('moves').textContent = moveCounter;
-
-  if (moveCounter >= 3) {
-    moveCounter = 0;
-    console.log('more then 3 move')
-    $("#b-button").trigger("click");
-  }
+})
 
 
-});
+$('.defend_p2').on('click', function() {
 
+  defend_1 = (damage0 / 2)
+  alert(defend_1)
 
-
-
-
-
-
-
-
-
-
-
-
-
+})

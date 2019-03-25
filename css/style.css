@@ -127,7 +127,7 @@ body{
   padding-bottom: 10px;
   font-size: 20px;
 }
-.wep-0, .wep-1, #score-0, #score-1, #scores-0, #scores-1, .ww-0, .ww-1, .moves{
+.wep-0, .wep-1, #damage-0, #damage-1, #scores-0, #scores-1, .ww-0, .ww-1, .moves{
   text-align: center;
   padding-top: 10px;
   width: 50px;
