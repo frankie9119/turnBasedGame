@@ -71,7 +71,7 @@
   top: 50px;
 }
 #b-box::after {
-  content: "Done";
+  content: "Switch";
   font-weight: bolder;
   position: absolute;
   right: 0;

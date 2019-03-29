@@ -227,3 +227,71 @@ body{
 }
 
 
+
+
+
+
+
+
+.powerW{
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: auto;
+  width: 60%;
+}
+.weapon0, .weapon1, .weapon2, .weapon3, .weapon4{
+  float: left;
+  padding-right: 30px;
+}
+
+li{
+  padding-bottom: 10px;
+}
+
+#mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: #85A8CA;
+  display: none;
+}
+
+#boxes .window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 440px;
+  height: 200px;
+  display: none;
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 15px;
+  
+}
+
+#boxes #dialog {
+  width: 950px;
+  height: 400px;
+  padding: 10px;
+  background-color: #ffffff;
+  
+  font-size: 15pt;
+}
+
+#popupfoot {
+  float: center;
+  font-size: 26pt;
+  position: absolute;
+  bottom: 20px;
+  
+}
+
+
+
+
+
+
+
+
+

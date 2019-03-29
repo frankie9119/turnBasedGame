@@ -12,6 +12,35 @@
   </head>
 
   <body>
+<div id="boxes">
+  <div id="dialog" class="window">
+    <h3>Game Instructions</h3>
+    <ul>
+      <li>Each player can move up to 3 spaces horizontally or vertically.</li>
+      <li>Use the controller to move the player, use the switch button when you're done.</li>
+      <li>Your current weapon has 10 pt destroy power, but you can get more powerfull weapons.</li>
+      
+        <div class="powerW">
+          <div class="weapon0"> <img id="weapon0" src="css/img/weapon.png" alt="weapon0">10</div>
+        <div class="weapon1"> <img src="css/img/weapon_1.png" alt="weapon_1">15</div>
+        <div class="weapon2"><img src="css/img/weapon_2.png" alt="weapon_2">20</div>
+        <div class="weapon3"><img src="css/img/weapon_3.png" alt="weapon_3">30</div>
+        <div class="weapon4"><img src="css/img/weapon_4.png" alt="weapon_4">40</div>
+      </div><br>
+    
+      <li>The battle begins if two players stand in the same box</li>
+      <li>Defense: causes no damage but got only 50% damage from enemy.</li>
+      <li>Attack: causes damage based on the current weapon.</li>
+      <li>The game is over if the life points of a player (initially 100) falls to 0.</li>
+      
+    </ul>
+    <div id="popupfoot"> <a href="#" class="close agree">Play</a>  </div>
+  </div>
+  <div id="mask"></div>
+</div>
+
+
+
 
     <div class="container">
       <div class=" player-container player-0" id="player-1 p-0">
@@ -37,13 +66,23 @@
 
           <div class="battle hidden" id="battle">
             <div class="fight_p0">
+                      <div class=""> <img src="css/img/p0.png" alt="player_0_logo"></div>
               <button class="attack_p1">ATTACK P1</button>
               <button class="defend_p1">DEFEND P1</button>
             </div>
+            <div class="winner_p0">
+              <h1>Congrats Player 1, you are the WINNER !</h1>
+                            <a href="index.html" class="btn btn-default">Play again</a>
+            </div>
 
             <div class="fight_p1">
+              <div class=""> <img src="css/img/p1.png" alt="player_1_logo"></div>
               <button class="attack_p2">ATTACK P2</button>
               <button class="defend_p2">DEFEND P2</button>
+            </div>
+            <div class="winner_p1">
+              <h1>Congrats Player 2, you are the WINNER !</h1>
+              <a href="index.html" class="btn btn-default">Play again</a>
             </div>
             
           </div>

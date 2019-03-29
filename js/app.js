@@ -22,6 +22,51 @@ playerWeapon = {
 playerWeapon1 = {
   currentWeapon: "wp-1"
 }
+
+
+$(document).ready(function() {  
+
+var id = '#dialog';
+  
+//Get the screen height and width
+var maskHeight = $(document).height();
+var maskWidth = $(window).width();
+  
+//Set heigth and width to mask to fill up the whole screen
+$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+//transition effect
+$('#mask').fadeIn(500); 
+$('#mask').fadeTo("slow",0.9);  
+  
+//Get the window height and width
+var winH = $(window).height();
+var winW = $(window).width();
+              
+//Set the popup window to center
+$(id).css('top',  winH/2-$(id).height()/2);
+$(id).css('left', winW/2-$(id).width()/2);
+  
+//transition effect
+$(id).fadeIn(2000);   
+  
+//if close button is clicked
+$('.window .close').click(function (e) {
+//Cancel the link behavior
+e.preventDefault();
+
+$('#mask').hide();
+$('.window').hide();
+});
+
+//if mask is clicked
+$('#mask').click(function () {
+$(this).hide();
+$('.window').hide();
+});
+  
+});
+
 //let weaponPrint = $('#score-' + activePlayer)
 
 // add all w points
@@ -66,14 +111,14 @@ function getWeapon(ele) {
         // THEN . . . . .
 
         $(ele).addClass(playerWeapon.currentWeapon) // SET current weapon as class to current grid-box
-        alert(playerWeapon.currentWeapon);
+        //alert(playerWeapon.currentWeapon);
         $(".ww-" + activePlayer).removeClass(playerWeapon.currentWeapon);
 
         playerWeapon.currentWeapon = classList[i]; // GET the originally set weapon class and SET it to playerOneCurrentWeapon
 
         $(ele).removeClass(playerWeapon.currentWeapon) // REMOVE old weapon from grid-box
 
-        alert(playerWeapon.currentWeapon);
+        //alert(playerWeapon.currentWeapon);
 
         $(".ww-" + activePlayer).addClass(playerWeapon.currentWeapon);
         //___________________________________________________WT NEW
@@ -89,14 +134,14 @@ function getWeapon(ele) {
         // THEN . . . . .
 
         $(ele).addClass(playerWeapon1.currentWeapon) // SET current weapon as class to current grid-box
-        alert(playerWeapon1.currentWeapon);
+        //alert(playerWeapon1.currentWeapon);
         $(".ww-" + activePlayer).removeClass(playerWeapon1.currentWeapon);
 
         playerWeapon1.currentWeapon = classList[i]; // GET the originally set weapon class and SET it to playerOneCurrentWeapon
 
         $(ele).removeClass(playerWeapon1.currentWeapon) // REMOVE old weapon from grid-box
 
-        alert(playerWeapon1.currentWeapon);
+        //alert(playerWeapon1.currentWeapon);
 
         $(".ww-" + activePlayer).addClass(playerWeapon1.currentWeapon);
         //___________________________________________________WT NEW
@@ -394,6 +439,7 @@ $('#b-button').on('click', function() {
 
 })
 
+
 //__________________________________________________________________________END done button
 
 //_________________________________________________________________________BEGUIN fight
@@ -408,6 +454,17 @@ function fight() {
   });
   alert('LET S FIGHT')
 
+  if (activePlayer === 1){
+    $('.fight_p0').hide();
+    $('.winner_p0').hide()
+    $('.winner_p1').hide()
+  }
+
+  if (activePlayer === 0){
+    $('.fight_p1').hide()
+    $('.winner_p1').hide()
+    $('.winner_p0').hide()
+  }
 }
 
 
@@ -423,11 +480,15 @@ $('.attack_p1').on('click', function() {
     score1 -= defend_1
     newScore1.html(score1)
     defend_1 = 0
-    alert(defend_1)
+    //alert(defend_1)
   } else {
     score1 -= damage
     newScore1.html(score1)
   }
+  $('.fight_p0').hide()
+  $('.fight_p1').show()
+
+  winner();
 
   //score1 -= damage
   //newScore1.html(score1)
@@ -444,9 +505,10 @@ $('.defend_p1').on('click', function(){
 
   defend_0 = (damage1 / 2)
   //newScore1.html(score1)
-  alert(defend_0)
+  //alert(defend_0)
 
-
+  $('.fight_p0').hide()
+  $('.fight_p1').show()
   //score1 -= (damage/2)
   //newScore1.html(score1)
 
@@ -461,12 +523,17 @@ $('.attack_p2').on('click', function() {
     score -= defend_0
     newScore0.html(score)
     defend_0 = 0
-    alert(defend_0)
+    //alert(defend_0)
   } else {
     score -= damage1
     newScore0.html(score)
   }
+  
+  $('.fight_p1').hide()
+  $('.fight_p0').show()
 
+
+  winner();
 
   //alert('here new score')
   //score -= damage1
@@ -480,8 +547,10 @@ $('.attack_p2').on('click', function() {
 $('.defend_p2').on('click', function(){
 
   defend_1 = (damage / 2)
-  alert(defend_1)
+  //alert(defend_1)
 
+  $('.fight_p1').hide()
+  $('.fight_p0').show()
   //score -= (damage1/2)
   //alert(score)
 
@@ -490,6 +559,31 @@ $('.defend_p2').on('click', function(){
 })
 
 // if defend next time other player attack damage/2 
+
+function winner(){
+  if (score <= 0){
+    alert('Player 2 is the Winner!')
+          $('.winner_p1').show();
+      $('.fight_p1').hide();
+      $('.fight_p0').hide();
+
+  }else if(score1 <= 0){
+   alert('Player 1 is the Winner!')
+      $('.fight_p1').hide();
+      $('.fight_p0').hide();
+      $('.winner_p0').show();
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
