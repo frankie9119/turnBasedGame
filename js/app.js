@@ -27,6 +27,7 @@ playerWeapon1 = {
 $(document).ready(function() {  
 
 var id = '#dialog';
+
   
 //Get the screen height and width
 var maskHeight = $(document).height();
@@ -67,15 +68,10 @@ $('.window').hide();
   
 });
 
-//let weaponPrint = $('#score-' + activePlayer)
 
-// add all w points
 
 document.getElementById('damage-0').textContent = '10';
 document.getElementById('damage-1').textContent = '10';
-
-//$("#square" + 0).addClass("player")
-
 
 //_______________________________________________________BEGIN Create grid
 
@@ -106,19 +102,17 @@ function getWeapon(ele) {
 
       if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
 
-        //alert('p0 weapon')
-        console.log(activePlayer)
-        // THEN . . . . .
+        //console.log(activePlayer)
+
 
         $(ele).addClass(playerWeapon.currentWeapon) // SET current weapon as class to current grid-box
-        //alert(playerWeapon.currentWeapon);
+
         $(".ww-" + activePlayer).removeClass(playerWeapon.currentWeapon);
 
         playerWeapon.currentWeapon = classList[i]; // GET the originally set weapon class and SET it to playerOneCurrentWeapon
 
         $(ele).removeClass(playerWeapon.currentWeapon) // REMOVE old weapon from grid-box
 
-        //alert(playerWeapon.currentWeapon);
 
         $(".ww-" + activePlayer).addClass(playerWeapon.currentWeapon);
         //___________________________________________________WT NEW
@@ -129,19 +123,15 @@ function getWeapon(ele) {
     } else if (activePlayer === 1) {
       if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
 
-        //alert('p0 weapon')
-        console.log(activePlayer)
-        // THEN . . . . .
+        //console.log(activePlayer)
 
         $(ele).addClass(playerWeapon1.currentWeapon) // SET current weapon as class to current grid-box
-        //alert(playerWeapon1.currentWeapon);
+
         $(".ww-" + activePlayer).removeClass(playerWeapon1.currentWeapon);
 
         playerWeapon1.currentWeapon = classList[i]; // GET the originally set weapon class and SET it to playerOneCurrentWeapon
 
         $(ele).removeClass(playerWeapon1.currentWeapon) // REMOVE old weapon from grid-box
-
-        //alert(playerWeapon1.currentWeapon);
 
         $(".ww-" + activePlayer).addClass(playerWeapon1.currentWeapon);
         //___________________________________________________WT NEW
@@ -155,9 +145,8 @@ function getWeapon(ele) {
 }
 
 
-
-
 //______________________________________________END CHECK ALL CLASSES FIRST LETTER 'W'
+
 //______________________________________________BEGIN WEAPONS POINTS
 
 function pointsWeapon(eles) {
@@ -231,7 +220,7 @@ $('#right-button').on('click', function() {
 
   let id = $pOne.attr('id')
   let x = +id.slice(6)
-    console.log(x)
+    //console.log(x)
 
     if (x > 98){
       return false;
@@ -241,9 +230,6 @@ $('#right-button').on('click', function() {
 
 
   $pOneNext = $pOne.next();
-//    if ($pOneNext > 98) {
-  //  return false;
-  //}
 
   if ($pOneNext.hasClass("ob")) {
     return false;
@@ -263,11 +249,10 @@ $('#right-button').on('click', function() {
   document.getElementById('moves').textContent = moveCounter;
 
 
-  //getWeapon(".p-" + activePlayer);
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 moves')
+    //console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -285,7 +270,7 @@ $('#left-button').on('click', function() {
 
   let id = $pOne.attr('id')
   let x = +id.slice(6)
-    console.log(x)
+    //console.log(x)
 
     if (x < 1){
       return false;
@@ -311,7 +296,7 @@ $('#left-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 moves')
+    //console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -330,13 +315,13 @@ $('#up-button').on('click', function() {
 
   var idNumber = +id.slice(6);
   var idMove = idNumber - 10
-  console.log(idNumber)
+  //console.log(idNumber)
   if (idMove < 0) {
     return false;
   }
   var idUpMove = 'square' + idMove;
 
-  console.log('going up test')
+  //console.log('going up test')
 
   if ($('#' + idUpMove).hasClass('ob')) {
     return false;
@@ -358,7 +343,7 @@ $('#up-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 moves')
+    //console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -375,7 +360,6 @@ $('#down-button').on('click', function() {
 
   $pOne = $('.p-' + activePlayer)
   var id = $pOne.attr('id');
-  //console.log(id)
 
   var idNumber = +id.slice(6);
   var idMove = idNumber + 10;
@@ -395,17 +379,13 @@ $('#down-button').on('click', function() {
     fight()
   }
 
-  //if (idMove <= 100) {
   $pOne.removeClass('p-' + activePlayer);
-  //}
-  moveCounter += 1;
 
-  //$('#' + idUpMove).removeClass('pOne');
+  moveCounter += 1;
 
 
   //_______________________________________________________________________BEGIN Get all classes
-  //let classList = $('#' + idDownMove).attr("class").split(' ');
-  //console.log(classList)
+
   //______________________________________________________________________END get all classes
 
 
@@ -417,7 +397,7 @@ $('#down-button').on('click', function() {
 
   if (moveCounter >= 3) {
     moveCounter = 0;
-    console.log('more then 3 moves')
+    //console.log('more then 3 moves')
     $("#b-button").trigger("click");
   }
 
@@ -469,18 +449,15 @@ function fight() {
 
 
 
-
-//let newScore0 = $('#scores-0');
-//let newScore1 = $('#scores-1');
 //________________________________________________ATTACK P 1
 $('.attack_p1').on('click', function() {
 
   if (defend_1 > 1) {
-    //alert('good...!')
+    
     score1 -= defend_1
     newScore1.html(score1)
     defend_1 = 0
-    //alert(defend_1)
+    
   } else {
     score1 -= damage
     newScore1.html(score1)
@@ -490,13 +467,6 @@ $('.attack_p1').on('click', function() {
 
   winner();
 
-  //score1 -= damage
-  //newScore1.html(score1)
-
-  //alert('here new score')
-  //alert(damage/2)
-  //document.getElementById('scores-0').textContent = score + 50;
-
 })
 
 // ____________________________________________________DEFEND P1
@@ -504,13 +474,9 @@ $('.attack_p1').on('click', function() {
 $('.defend_p1').on('click', function(){
 
   defend_0 = (damage1 / 2)
-  //newScore1.html(score1)
-  //alert(defend_0)
 
   $('.fight_p0').hide()
   $('.fight_p1').show()
-  //score1 -= (damage/2)
-  //newScore1.html(score1)
 
 })
 
@@ -535,10 +501,7 @@ $('.attack_p2').on('click', function() {
 
   winner();
 
-  //alert('here new score')
-  //score -= damage1
-  //newScore0.html(score)
-  //alert(score)
+
 
 })
 
@@ -547,14 +510,10 @@ $('.attack_p2').on('click', function() {
 $('.defend_p2').on('click', function(){
 
   defend_1 = (damage / 2)
-  //alert(defend_1)
 
   $('.fight_p1').hide()
   $('.fight_p0').show()
-  //score -= (damage1/2)
-  //alert(score)
 
-  //newScore0.html(score)
 
 })
 
@@ -562,13 +521,13 @@ $('.defend_p2').on('click', function(){
 
 function winner(){
   if (score <= 0){
-    alert('Player 2 is the Winner!')
+    //alert('Player 2 is the Winner!')
           $('.winner_p1').show();
       $('.fight_p1').hide();
       $('.fight_p0').hide();
 
   }else if(score1 <= 0){
-   alert('Player 1 is the Winner!')
+   //alert('Player 1 is the Winner!')
       $('.fight_p1').hide();
       $('.fight_p0').hide();
       $('.winner_p0').show();
