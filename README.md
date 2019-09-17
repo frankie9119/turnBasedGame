@@ -1,6 +1,8 @@
 # turnBasedGame - Project
 
 
+Branch GEO is final one.
+
 Small game with 2 players moving in turn. Each players has initial lifepoints and their own weapon.
 
 At the beginning of the game, players , weapon and obstacles are placed randomly on the map. 
