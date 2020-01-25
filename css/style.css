@@ -1,78 +1,111 @@
 body{
 	background-color: #b4cdd4;
+  font-family: 'Special Elite', cursive;
 }
+
+.name-1, .name-2{
+  width: 120px;
+  text-align: center;
+  margin-left: 35px;
+}
+.active{
+  background-color: red;
+  outline: 5px solid red;
+}
+
 .container{
 	display: flex;
-	text-align: center;
+	margin: auto;
 	width: 100%;
 	height: 400px;
-	padding-top: 5%;
+	padding-top: 2px;
 	padding-bottom: 5%;
+
+}
+.player-container {
+  width: 130px;
+  height: 460px;
+  float: left;
+  position: relative;
+}
+.player-container::before {
+  content: "";
+  width: 120px;
+  height: 70px;
+  position: absolute;
+  background: #000;
+  z-index: -1;
+  top: -7px;
+}
+.player-container.player-0 {
+  background-color: #fdc9c5;
+  border-radius: 3px;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+}
+.player-container.player-0::before {
+  top: -5px;
+  left: -2px;
+  border-top-left-radius: 75px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.player-container.player-1 {
+  background: #ede586;
+  border-radius: 3px;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+}
+.player-container.player-1::before {
+  top: -5px;
+  right: -2px;
+  border-top-right-radius: 75px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
-#player-1{
-	background-color: #5b97b1;
+/*
+.player-container{
+	background-color: white;
+	border: 1px solid black;
+}*/
+.player-0{
 	width: 200px;
-	border: 2px solid blue;
 	text-align: center;
 	margin-left: 100px;
-	
 }
-#grid-box
-{	
-	background-image: url("img/ground2.jpg");
-	width: 420px;
-	height: 420px;
-	padding-left: 0px;
-	
-}
-
-#player-2{
-	background-color: pink;
-	border: 2px solid blue;
+.player-1{
 	width: 200px;
 	text-align: center;
 	margin-right: 100px;
-	
-	
 }
 
-
-
-
-.draggable { 
-	background-color: blue; 
-	width: 40px; 
-	height: 40px; 
-	float: left; 
-	margin: 0 10px 10px 0; 
-	font-size: .9em;}
-    .ui-widget-header p, .ui-widget-content p { margin: 0; }
-#snaptarget { height: 140px; }
-
-
-
-
-
-.dropbox{
-	width: 400px;
-	height: 400px;
-    background-color:#c4c4c4;
-    width:40px;
-    height:40px;
-    float:left;
-    margin: 1px 1px 1px 1px;
+.hidden{
+  display: none;
 }
-#grid-box {
-
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
-  font-size: 0;
-  position: relative;
+.fhidden{
+  display: none;
+}
+.hiddenDpad{
+  display: none ;
 }
 
-#grid-box>div.square {
+.battle{ 
+  background-image: url("img/ground2.jpg");
+  width: 420px;
+  height: 420px;
+  border: 20px solid #404040;
+}
+
+.grid-box
+{	
+	background-image: url("img/ground2.jpg");
+  z-index: 0;
+	width: 420px;
+	height: 420px;
+	border: 20px solid #404040;
+}
+.grid-box>div.square {
   font-size: 1rem;
   vertical-align: top;
   display: inline-block;
@@ -84,13 +117,174 @@ body{
 .ob{
 	background-image: url("img/wood.png");
 }
-.pOne{
-	background-image: url("img/p3.png");
+
+.move{
+	text-align: center;
+}
+#moves{
+  margin-top: 100px;
+}
+
+/* WEAPONS */
+.w0-title, .w1-title, #sTitle-0, #sTitle-1{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+.wep-0, .wep-1, #damage-0, #damage-1, #scores-0, #scores-1, .ww-0, .ww-1, .moves{
+  text-align: center;
+  padding-top: 10px;
+  width: 50px;
+  height: 50px;
+  margin-left: 35%;
+  border: 2px dashed black;
+  background-color: #8f8f8f;
+}
+.wp-0{
+  background-image: url("img/weapon.png");
+  background-repeat: no-repeat;
+  position: relative; ;
+  z-index: 1 ;
+}
+.wp-1{
+  background-image: url("img/weapon.png");
+  background-repeat: no-repeat;
+  z-index: ;
+}
+
+.w-1{
+	background-image: url("img/weapon_1.png");
+   background-repeat:no-repeat;
+   position:relative; ;
+   z-index: 0;
+}
+.w-2{
+	background-image: url("img/weapon_2.png");
+   background-repeat:no-repeat;
+      position: relative;
+   z-index: 0;
+}
+
+.w-3{
+	background-image: url("img/weapon_3.png");
+   background-repeat:no-repeat;
+      position: relative;
+   z-index: 0;
+}
+.w-4{
+	background-image: url("img/weapon_4.png");
+   background-repeat:no-repeat;
+      position: relative;
+   z-index: 0;
+}
+.p-0{
+  background-image: url("img/p0.png");
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+}
+.p-1{
+  background-image: url("img/p1.png");
+  background-repeat:no-repeat;
+  z-index: 2;
+}
+.att-def{
+  
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+
+
+/*______________ ANIMATION _______ */
+.is-animated {
+    animation-duration: .9s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,75%,0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+.player{
+  background-color: orange;
+}
+
+.fight_p0{
+  background-color: #fdc9c5;
+}
+
+.fight_p1{
+  background-color: #ede586;
 }
 
 
 
 
+
+
+
+
+.powerW{
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: auto;
+  width: 60%;
+}
+.weapon0, .weapon1, .weapon2, .weapon3, .weapon4{
+  float: left;
+  padding-right: 30px;
+}
+
+li{
+  padding-bottom: 10px;
+}
+
+#mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: #85A8CA;
+  display: none;
+}
+
+#boxes .window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 440px;
+  height: 200px;
+  display: none;
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 15px;
+  
+}
+
+#boxes #dialog {
+  width: 950px;
+  height: 400px;
+  padding: 10px;
+  background-color: #ffffff;
+  font-size: 15pt;
+}
+
+#popupfoot {
+  float: center;
+  font-size: 26pt;
+  position: absolute;
+  bottom: 20px;
+  
+}
 
 
 
