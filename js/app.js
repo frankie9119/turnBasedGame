@@ -96,8 +96,6 @@ function getWeapon(ele) {
 
   for (let i = 0; i < classList.length; i += 1) {
 
-    //___________________________________________________WT NEW
-
     if (activePlayer === 0) {
 
       if (classList[i][0] === "w") { // ____________________IF current grid-square has a class that begins with "w"
@@ -115,7 +113,7 @@ function getWeapon(ele) {
 
 
         $(".ww-" + activePlayer).addClass(playerWeapon.currentWeapon);
-        //___________________________________________________WT NEW
+
         return classList[i]
 
 
@@ -134,7 +132,7 @@ function getWeapon(ele) {
         $(ele).removeClass(playerWeapon1.currentWeapon) // REMOVE old weapon from grid-box
 
         $(".ww-" + activePlayer).addClass(playerWeapon1.currentWeapon);
-        //___________________________________________________WT NEW
+
         return classList[i]
 
       }
@@ -230,6 +228,7 @@ $('#right-button').on('click', function() {
 
 
   $pOneNext = $pOne.next();
+  $x = $pOneNext.next();
 
   if ($pOneNext.hasClass("ob")) {
     return false;
